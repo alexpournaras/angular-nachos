@@ -1011,7 +1011,7 @@ body {
 .login-register-section {
 	width: 100%;
     height: 700px;
-    /* background-image: url("./images/login_register_background.jpg"); */
+    background-image: url("./assets/login_register_background.jpg");
     background-size: cover;
 }
 
