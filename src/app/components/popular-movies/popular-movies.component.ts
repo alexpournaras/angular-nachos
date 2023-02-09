@@ -7,13 +7,13 @@ import { DataService } from '../../data.service';
   styleUrls: ['./popular-movies.component.css']
 })
 export class PopularMoviesComponent implements OnInit {
+  data: any;
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getAllMovies().subscribe(data => {
-      console.log(data);
-    });
+    // this.dataService.getAllMovies()
+
   }
 
 }

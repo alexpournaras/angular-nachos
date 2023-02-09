@@ -4,6 +4,17 @@
     </h2>
 </div>
 <div class="featured-movies-container">
+    <a *ngFor="let movie of movies | keyvalue" href="./pages/movie.html" tabindex="0" role="button" class="featured-movie featured-movie-flexbox">
+        <img class="featured-movie-image" [src]="movie.value.imageUrl">
+        <div class="featured-movie-caption">
+            <span class="featured-movie-caption-title">{{ movie.value.title }}</span><br>
+            <span><i class="fa fa-star featured-movie-caption-star"></i> {{ movie.value.score }} Rating</span><br>
+            <button class="featured-movie-caption-button">Read More</button>
+        </div>
+    </a>
+</div>
+
+<div class="featured-movies-container">
     <a href="./pages/movie.html" tabindex="0" role="button" class="featured-movie featured-movie-flexbox">
         <img class="featured-movie-image" src="./assets/featured/godzilla_poster.png">
         <div class="featured-movie-caption">
