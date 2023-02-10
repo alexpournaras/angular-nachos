@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data.service';
+import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'home-page',
@@ -8,10 +8,11 @@ import { DataService } from '../../data.service';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.dataService.getAllMovies()
+    this.apiService.getAllMovies();
+    this.apiService.getAllPeople();
   }
 
 }

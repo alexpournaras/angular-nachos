@@ -1,4 +1,5 @@
 export interface Movie {
+    id?: string;
     cast: string[];
     director: string;
     directorId: string;

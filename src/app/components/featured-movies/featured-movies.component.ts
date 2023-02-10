@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data.service';
+import { ApiService } from '../../api.service';
 import { Movie } from '../../movie';
 
 
@@ -9,16 +9,26 @@ import { Movie } from '../../movie';
   styleUrls: ['./featured-movies.component.css']
 })
 export class FeaturedMoviesComponent implements OnInit {
-  movies: { [id: string]: Movie } = {};
+  featuredMovies: Movie[] = [];
 
-  constructor(private dataService: DataService) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.dataService.data$.subscribe(data => {
-      this.movies = data;
+    this.apiService.movies$.subscribe((data: { [id: string]: Movie }) => {
+
+      // TODO: Remove this when image becames available
+      delete data['movie002'];
+
+      let featuredMovies = [];
+
+      for (const [movie_id, movie] of Object.entries(data)) {
+        movie['id'] = movie_id;
+        featuredMovies.push(movie)
+      }
+
+      featuredMovies.sort((a, b) => b.score - a.score);
+      this.featuredMovies = featuredMovies.slice(0, 6);
     });
   }
-
-  
 
 }
