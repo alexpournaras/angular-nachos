@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, AfterViewChecked } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { Person } from '../../person';
 
@@ -7,7 +7,7 @@ import { Person } from '../../person';
   templateUrl: './popular-actors.component.html',
   styleUrls: ['./popular-actors.component.css']
 })
-export class PopularActorsComponent implements OnInit {
+export class PopularActorsComponent implements OnInit, AfterViewChecked {
   popularActors: Person[] = [];
 
   constructor(private apiService: ApiService) { }
@@ -25,4 +25,20 @@ export class PopularActorsComponent implements OnInit {
     });
   }
 
+  @HostListener('window:resize', ['$event'])
+  onWindowResize() {
+    this.setRightColumnHeight();
+  }
+
+  ngAfterViewChecked() {
+    this.setRightColumnHeight();
+  }
+
+  setRightColumnHeight() {
+    const popularMoviesElement = document.querySelector('.popular-movies') as HTMLElement;
+    const popularMoviesHeight = popularMoviesElement ? popularMoviesElement.offsetHeight : 0;
+
+    const actorsElement = document.querySelector('.actors') as HTMLElement;
+    actorsElement.style.maxHeight = (popularMoviesHeight - 10) + "px";
+  }
 }
