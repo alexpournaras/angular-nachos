@@ -328,6 +328,7 @@ body {
 
 .featured-movie-image {
 	width: 100%;
+	aspect-ratio: 1/1.5;
 }
 
 .featured-movie-caption-star {
@@ -372,11 +373,15 @@ body {
 	text-align: center;
 	padding-bottom: 10px;
 	padding-top: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .popular-movie-caption-title {
 	font-size: 17px;
 	font-weight: 900;
+	padding: 0px 5px;
 }
 
 .popular-movie:hover {
@@ -391,6 +396,7 @@ body {
 .popular-movie-image {
 	width: 100%;
 	display: block;
+	aspect-ratio: 1/1.5;
 }
 
 .latest-popular-actors-section {

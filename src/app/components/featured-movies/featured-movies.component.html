@@ -4,7 +4,7 @@
     </h2>
 </div>
 <div class="featured-movies-container">
-    <a *ngFor="let movie of featuredMovies" href="./pages/movie.html" tabindex="0" role="button" class="featured-movie featured-movie-flexbox">
+    <a *ngFor="let movie of featuredMovies" href="./pages/movie.html" [title]="movie.title" tabindex="0" role="button" class="featured-movie featured-movie-flexbox">
         <img class="featured-movie-image" [src]="movie.imageUrl">
         <div class="featured-movie-caption">
             <span class="featured-movie-caption-title">{{ movie.title }}</span><br>
