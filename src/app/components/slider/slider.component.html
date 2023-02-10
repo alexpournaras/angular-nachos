@@ -51,11 +51,11 @@
         <img class="slider-interstellar" src="./assets/slider/slider-interstellar.png">
     </div>
 
-    <a class="back-button" onclick="previousSlide()">&#10094;</a>
-    <a class="forward-button" onclick="nextSlide()">&#10095;</a>
+    <a class="back-button" (click)="goToPrevSlide()">&#10094;</a>
+    <a class="forward-button" (click)="goToNextSlide()">&#10095;</a>
     <div class="slideshow-dots-container">
-        <span class="slideshow-dot" onclick="changeSlide(1)"></span>
-        <span class="slideshow-dot" onclick="changeSlide(2)"></span>
-        <span class="slideshow-dot" onclick="changeSlide(3)"></span>
+        <span class="slideshow-dot" (click)="changeSlide(1)"></span>
+        <span class="slideshow-dot" (click)="changeSlide(2)"></span>
+        <span class="slideshow-dot" (click)="changeSlide(3)"></span>
     </div>
 </div>
