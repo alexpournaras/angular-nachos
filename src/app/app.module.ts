@@ -14,6 +14,8 @@ import { LatestPopularComponent } from './components/latest-popular/latest-popul
 import { PopularMoviesComponent } from './components/popular-movies/popular-movies.component';
 import { PopularActorsComponent } from './components/popular-actors/popular-actors.component';
 import { MoviesPageComponent } from './pages/movies-page/movies-page.component';
+import { MoviesFiltersComponent } from './components/movies-filters/movies-filters.component';
+import { MoviesComponent } from './components/movies/movies.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
@@ -33,7 +35,9 @@ const routes: Routes = [
     LatestPopularComponent,
     PopularMoviesComponent,
     PopularActorsComponent,
-    MoviesPageComponent
+    MoviesPageComponent,
+    MoviesFiltersComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,
