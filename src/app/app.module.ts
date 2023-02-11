@@ -16,11 +16,16 @@ import { PopularActorsComponent } from './components/popular-actors/popular-acto
 import { MoviesPageComponent } from './pages/movies-page/movies-page.component';
 import { MoviesFiltersComponent } from './components/movies-filters/movies-filters.component';
 import { MoviesComponent } from './components/movies/movies.component';
+import { PeoplePageComponent } from './pages/people-page/people-page.component';
+import { PeopleFiltersComponent } from './components/people-filters/people-filters.component';
+import { PeopleComponent } from './components/people/people.component';
+import { NumberFormatPipe } from './number-format.pipe';
+import { TextCapitalizePipe } from './text-capitalize.pipe';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
   { path: 'movies', component: MoviesPageComponent },
-  // { path: 'about', component: AboutComponent },
+  { path: 'people', component: PeoplePageComponent },
 ];
 
 @NgModule({
@@ -37,7 +42,12 @@ const routes: Routes = [
     PopularActorsComponent,
     MoviesPageComponent,
     MoviesFiltersComponent,
-    MoviesComponent
+    MoviesComponent,
+    PeoplePageComponent,
+    PeopleFiltersComponent,
+    PeopleComponent,
+    NumberFormatPipe,
+    TextCapitalizePipe
   ],
   imports: [
     BrowserModule,

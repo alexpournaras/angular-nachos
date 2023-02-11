@@ -3,7 +3,7 @@
         <img class="movie-image" [src]="movie.imageUrl">
         <div class="movie-caption">
             <span class="movie-caption-title">{{ movie.title }}</span><br>
-            <span class="movie-caption-year">{{ movie.releaseYear }} • {{ movie.score }}</span><br>
+            <span class="movie-caption-year">{{ movie.releaseYear }} • {{ movie.score | numberFormat }}</span><br>
         </div>
     </a>
 </div>

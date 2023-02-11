@@ -1,0 +1,31 @@
+<div class="actors-filters">
+    <div class="actors-filters-container">
+        <div class="actors-filter-dropdown">
+            <button id="filter-sort" class="actors-filter-dropdown-button" (click)="toggleDropdown()">
+                <i class="fa fa-sort"></i>
+                Sort: <span>Default</span>
+            </button>
+            <ul *ngIf="showDropdown" id="filter-sort-dropdown" class="filter-dropdown">
+                <li><input name="sort" id="sort_default" type="radio" value="default" checked="checked"><label for="sort_default">Default</label></li>
+                <li><input name="sort" id="sort_title" type="radio" value="title"><label for="sort_title">Alphabetical</label></li>
+                <li><input name="sort" id="sort_role" type="radio" value="role"><label for="sort_role">Role</label></li>
+            </ul>
+        </div>
+        <div class="actors-filter-submit">
+            <button type="submit" class="actors-filter-submit-button">
+                <i class="fa fa-filter"></i>
+                Filter
+            </button>
+        </div>
+    </div>
+    <div class="actors-search-container">
+        <div class="actors-search">
+           <form class="actors-search-form" autocomplete="off" action="#">
+            <span>
+                <i class="fa fa-search actors-search-icon"></i>
+                <input class="actors-search-input" type="text" name="keyword" placeholder="Enter your keywords..." autocomplete="off">
+            </span>
+           </form>
+        </div>
+     </div>
+</div>

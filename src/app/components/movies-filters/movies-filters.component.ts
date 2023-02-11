@@ -37,19 +37,19 @@ export class MoviesFiltersComponent implements OnInit {
   showYear: boolean = false;
   showSort: boolean = false;
 
-  showGenresDropdown() {
+  toggleGenresDropdrown() {
     this.showGenres = !this.showGenres;
     this.showYear = false;
     this.showSort = false;
   }
 
-  showYearDropdown() {
+  toggleYearDropdrown() {
     this.showYear = !this.showYear;
     this.showGenres = false;
     this.showSort = false;
   }
 
-  showSortDropdown() {
+  toggleSortDropdrown() {
     this.showSort = !this.showSort;
     this.showYear = false;
     this.showGenres = false;

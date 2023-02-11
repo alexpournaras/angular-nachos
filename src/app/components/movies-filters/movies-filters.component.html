@@ -1,7 +1,7 @@
 <div class="movies-filters">
     <div class="movies-filters-container">
         <div class="movies-filter-dropdown">
-            <button id="filter-genre" class="movies-filter-dropdown-button" (click)="showGenresDropdown()">
+            <button id="filter-genre" class="movies-filter-dropdown-button" (click)="toggleGenresDropdrown()">
                 <i class="fa fa-folder-open"></i>
                 Genre: <span>All</span>
             </button>
@@ -10,7 +10,7 @@
             </ul>
         </div>
         <div class="movies-filter-dropdown movies-filter-dropdown-2-col">
-            <button id="filter-year" class="movies-filter-dropdown-button" (click)="showYearDropdown()">
+            <button id="filter-year" class="movies-filter-dropdown-button" (click)="toggleYearDropdrown()">
                 <i class="fa fa-calendar"></i>
                 Year: <span>All</span>
             </button>
@@ -19,7 +19,7 @@
             </ul>
         </div>
         <div class="movies-filter-dropdown">
-            <button id="filter-sort" class="movies-filter-dropdown-button" (click)="showSortDropdown()">
+            <button id="filter-sort" class="movies-filter-dropdown-button" (click)="toggleSortDropdrown()">
                 <i class="fa fa-sort"></i>
                 Sort: <span>Default</span>
             </button>
