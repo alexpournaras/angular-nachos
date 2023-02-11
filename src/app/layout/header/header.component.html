@@ -1,25 +1,25 @@
 <div class="logo-container">
-    <a href="./index.html">
-      <img class="logo" src="./assets/logo_black_background.png">
-    </a>
-  </div>
-  <a id="burger-menu" class="burger-menu"><i class="fa fa-bars"></i></a>
-  <nav class="menu-nav">
-    <ul id="menu-links" class="menu-links">
-      <li class="menu-item"><a class="menu-link menu-link-active" [routerLink]="['/']">Home</a></li>
-      <li class="menu-item"><a class="menu-link" [routerLink]="['/movies']">Movies</a></li>
-      <li class="menu-item"><a class="menu-link" href="./pages/actors.html">Actors</a></li>
-      <li class="menu-item"><a class="menu-link" href="./pages/news.html">News</a></li>
-      <li class="menu-item"><a class="menu-link" href="./pages/news.html">Top 10</a></li>
-      <li class="menu-item login-register-link"><a class="menu-link" href="./pages/login.html">Login</a></li>
-      <li class="menu-item login-register-link"><a class="menu-link" href="./pages/register.html">Register</a></li>
-    </ul>
-  </nav>
-  <div class="header-login-register">
-    <a href="./pages/login.html">
-      <button type="button" class="header-login-register-button">Login</button>
-    </a>
-    <a href="./pages/register.html">
-      <button type="button" class="header-login-register-button">Register</button>
-    </a>
-  </div>
+  <a href="./index.html">
+    <img class="logo" src="./assets/logo_black_background.png">
+  </a>
+</div>
+<a id="burger-menu" class="burger-menu" (click)="toggleMenu()"><i [ngClass]="!showMenu ? 'fa fa-bars' : 'fa fa-times'"></i></a>
+<nav class="menu-nav">
+  <ul id="menu-links" class="menu-links" [ngClass]="{'show-menu': showMenu}">
+    <li class="menu-item"><a class="menu-link menu-link-active" [routerLink]="['/']">Home</a></li>
+    <li class="menu-item"><a class="menu-link" [routerLink]="['/movies']">Movies</a></li>
+    <li class="menu-item"><a class="menu-link" href="./pages/actors.html">Actors</a></li>
+    <li class="menu-item"><a class="menu-link" href="./pages/news.html">News</a></li>
+    <li class="menu-item"><a class="menu-link" href="./pages/news.html">Top 10</a></li>
+    <li class="menu-item login-register-link"><a class="menu-link" href="./pages/login.html">Login</a></li>
+    <li class="menu-item login-register-link"><a class="menu-link" href="./pages/register.html">Register</a></li>
+  </ul>
+</nav>
+<div class="header-login-register">
+  <a href="./pages/login.html">
+    <button type="button" class="header-login-register-button">Login</button>
+  </a>
+  <a href="./pages/register.html">
+    <button type="button" class="header-login-register-button">Register</button>
+  </a>
+</div>
