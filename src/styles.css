@@ -787,7 +787,6 @@ body {
 .filter-dropdown {
     position: absolute;
     z-index: 1000;
-    display: none;
     float: left;
     min-width: 10rem;
     padding: 0.5rem 0;

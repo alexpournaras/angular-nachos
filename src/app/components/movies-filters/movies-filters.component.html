@@ -1,11 +1,11 @@
 <div class="movies-filters">
-    <form class="movies-filters-container" action="./movies.html">
+    <div class="movies-filters-container">
         <div class="movies-filter-dropdown">
-            <button id="filter-genre" class="movies-filter-dropdown-button">
+            <button id="filter-genre" class="movies-filter-dropdown-button" (click)="showGenresDropdown()">
                 <i class="fa fa-folder-open"></i>
                 Genre: <span>All</span>
             </button>
-            <ul id="filter-genre-dropdown" class="filter-dropdown">
+            <ul *ngIf="showGenres" id="filter-genre-dropdown" class="filter-dropdown">
                 <li><input name="genre[]" type="checkbox" id="genre_action" value="25"><label for="genre_action">Action</label></li>
                 <li><input name="genre[]" type="checkbox" id="genre_adventure" value="17"><label for="genre_adventure">Adventure</label></li>
                 <li><input name="genre[]" type="checkbox" id="genre_animation" value="10"><label for="genre_animation">Animation</label></li>
@@ -34,11 +34,11 @@
             </ul>
         </div>
         <div class="movies-filter-dropdown movies-filter-dropdown-2-col">
-            <button id="filter-year" class="movies-filter-dropdown-button">
+            <button id="filter-year" class="movies-filter-dropdown-button" (click)="showYearDropdown()">
                 <i class="fa fa-calendar"></i>
                 Year: <span>All</span>
             </button>
-            <ul id="filter-year-dropdown" class="filter-dropdown">
+            <ul *ngIf="showYear" id="filter-year-dropdown" class="filter-dropdown">
                 <li><input name="release[]" type="checkbox" id="release_2023" value="2023"><label for="release_2023">2023</label></li>
                 <li><input name="release[]" type="checkbox" id="release_2022" value="2022"><label for="release_2022">2022</label></li>
                 <li><input name="release[]" type="checkbox" id="release_2021" value="2021"><label for="release_2021">2021</label></li>
@@ -66,11 +66,11 @@
             </ul>
         </div>
         <div class="movies-filter-dropdown">
-            <button id="filter-sort" class="movies-filter-dropdown-button">
+            <button id="filter-sort" class="movies-filter-dropdown-button" (click)="showSortDropdown()">
                 <i class="fa fa-sort"></i>
                 Sort: <span>Default</span>
             </button>
-            <ul id="filter-sort-dropdown" class="filter-dropdown">
+            <ul *ngIf="showSort" id="filter-sort-dropdown" class="filter-dropdown">
                 <li><input name="sort" id="sort_default" type="radio" value="default" checked="checked"><label for="sort_default">Default</label></li>
                 <li><input name="sort" id="sort_post_date" type="radio" value="post_date"><label for="sort_post_date">Recently Added</label></li>
                 <li><input name="sort" id="sort_views" type="radio" value="views"><label for="sort_views">Most Watched</label></li>
@@ -86,7 +86,7 @@
                 Filter
             </button>
         </div>
-    </form>
+    </div>
     <div class="movies-search-container">
         <div class="movies-search">
            <form class="movies-search-form" autocomplete="off" action="#">

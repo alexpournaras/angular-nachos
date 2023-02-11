@@ -12,6 +12,7 @@ export class MoviesPageComponent implements OnInit {
 
   ngOnInit() {
     this.apiService.getAllMovies();
+    this.apiService.getAllGenres();
   }
 
 }

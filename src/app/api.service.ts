@@ -13,6 +13,9 @@ export class ApiService {
   private peopleSubject = new Subject<any>();
   people$ = this.peopleSubject.asObservable();
 
+  private genresSubject = new Subject<any>();
+  genres$ = this.genresSubject.asObservable();
+
   constructor(private http: HttpClient) { }
 
   getAllMovies() {
@@ -27,8 +30,9 @@ export class ApiService {
     });
   }
 
-
-  //https://city-assignment.firebaseio.com/movies.json
-
-
+  getAllGenres() {
+    this.http.get('https://city-assignment.firebaseio.com/genres.json').subscribe(genres => {
+      this.genresSubject.next(genres);
+    });
+  }
 }
