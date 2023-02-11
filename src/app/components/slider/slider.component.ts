@@ -6,7 +6,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent implements OnInit {
-  automaticScroll: boolean = true;
+  automaticScroll: boolean = false;
   scrollInterval: number = 5000;
   activeSlide: number = 1;
   intervalId: any;

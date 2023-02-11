@@ -700,11 +700,15 @@ body {
 	text-align: center;
 	padding-bottom: 10px;
 	padding-top: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .movie-caption-title {
 	font-size: 17px;
 	font-weight: 900;
+	padding: 0px 5px;
 }
 
 .actor-container-caption-title {
@@ -728,6 +732,7 @@ body {
 .movie-image, .actor-container-image {
 	width: 100%;
 	display: block;
+	aspect-ratio: 1/1.5;
 }
 
 .movies-filters-container, .actors-filters-container {

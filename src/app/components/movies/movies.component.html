@@ -1,4 +1,13 @@
 <div class="movies">
+    <a *ngFor="let movie of movies" href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
+        <img class="movie-image" [src]="movie.imageUrl">
+        <div class="movie-caption">
+            <span class="movie-caption-title">{{ movie.title }}</span><br>
+            <span class="movie-caption-year">{{ movie.releaseYear }} • {{ movie.score }}</span><br>
+        </div>
+    </a>
+</div>
+<!-- <div class="movies">
     <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
         <img class="movie-image" src="./assets/movies/fast_and_furious.jpg">
         <div class="movie-caption">
@@ -6,169 +15,7 @@
             <span class="movie-caption-year">2022 • 102 m</span><br>
         </div>
     </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/tenet.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Tenet</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/red_notice.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Red Notice</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/morbius.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Morbius</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/inception.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Inception</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/matrix.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Matrix</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/avengers.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">The Avengers</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/dune.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Dune</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/jurassic_park.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Jurrasic Park</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/black_panther.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Black Panther</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/wrath_of_man.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Wrath Of Man</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/avatar.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Avatar</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/hunger_games.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Hunger Games</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/shutter_island.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Shutter Island</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/quiet_place.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">A Quiet Place</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/escape_room.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Escape Room</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/resident_evil.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Resident Evil</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/scream.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Scream</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/moonfall.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Moonfall</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/john_wick_3.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">John Wick 3</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/it.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">It</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/joker.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Joker</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/parasite.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Parasite</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-    <a href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
-        <img class="movie-image" src="./assets/movies/creed_2.jpg">
-        <div class="movie-caption">
-            <span class="movie-caption-title">Creed II</span><br>
-            <span class="movie-caption-year">2022 • 102 m</span><br>
-        </div>
-    </a>
-
-</div>
+</div> -->
 <div class="movies-pagination">
     <ul class="movies-pagination-container movies-pagination-ul">
         <li><a href="#">«</a></li>

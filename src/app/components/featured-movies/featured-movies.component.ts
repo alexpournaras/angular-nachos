@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { Movie } from '../../movie';
 
-
 @Component({
   selector: 'featured-movies',
   templateUrl: './featured-movies.component.html',
