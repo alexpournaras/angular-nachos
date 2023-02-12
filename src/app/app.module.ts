@@ -25,15 +25,21 @@ import { NewsPagesComponent } from './pages/news-pages/news-pages.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { Top10PageComponent } from './pages/top10-page/top10-page.component';
+import { MoviePageComponent } from './pages/movie-page/movie-page.component';
+import { MovieContentComponent } from './components/movie-content/movie-content.component';
+import { MovieCastComponent } from './components/movie-cast/movie-cast.component';
+import { MovieSimilarComponent } from './components/movie-similar/movie-similar.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
   { path: 'movies', component: MoviesPageComponent },
+  { path: 'movies/:id', component: MoviePageComponent },
   { path: 'people', component: PeoplePageComponent },
   { path: 'news', component: NewsPagesComponent },
   { path: 'top10', component: Top10PageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({
@@ -59,7 +65,11 @@ const routes: Routes = [
     NewsPagesComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    Top10PageComponent
+    Top10PageComponent,
+    MoviePageComponent,
+    MovieContentComponent,
+    MovieCastComponent,
+    MovieSimilarComponent
   ],
   imports: [
     BrowserModule,

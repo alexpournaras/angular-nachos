@@ -1,5 +1,5 @@
 <div class="movies">
-    <a *ngFor="let movie of movies" href="../pages/movie.html" tabindex="0" role="button" class="movie movie-flexbox">
+    <a *ngFor="let movie of movies" [routerLink]="['/movies', movie.id]" tabindex="0" role="button" class="movie movie-flexbox">
         <img class="movie-image" [src]="movie.imageUrl">
         <div class="movie-caption">
             <span class="movie-caption-title">{{ movie.title }}</span><br>
