@@ -15,9 +15,6 @@ export class PopularMoviesComponent implements OnInit {
   ngOnInit() {
     this.apiService.movies$.subscribe((data: { [id: string]: Movie }) => {
 
-      // TODO: Remove this when image becames available
-      delete data['movie002'];
-
       let popularMovies = [];
 
       for (const [movie_id, movie] of Object.entries(data)) {

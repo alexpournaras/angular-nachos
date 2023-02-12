@@ -15,9 +15,6 @@ export class MoviesComponent implements OnInit {
   ngOnInit() {
     this.apiService.movies$.subscribe((data: { [id: string]: Movie }) => {
 
-      // TODO: Remove this when image becames available
-      delete data['movie002'];
-
       for (const [movie_id, movie] of Object.entries(data)) {
         movie['id'] = movie_id;
         this.movies.push(movie)
