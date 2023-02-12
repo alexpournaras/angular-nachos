@@ -5,7 +5,7 @@
         </h2>
     </div>
     <div class="popular-movies">
-        <a *ngFor="let movie of popularMovies" href="./pages/movie.html" [title]="movie.title" tabindex="0" role="button" class="popular-movie popular-movie-flexbox">
+        <a *ngFor="let movie of popularMovies" [routerLink]="['/movies', movie.id]" [title]="movie.title" tabindex="0" role="button" class="popular-movie popular-movie-flexbox">
             <img class="popular-movie-image" [src]="movie.imageUrl">
             <div class="popular-movie-caption">
                 <span class="popular-movie-caption-title">{{ movie.title }}</span><br>
