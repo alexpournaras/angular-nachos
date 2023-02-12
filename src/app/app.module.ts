@@ -21,11 +21,19 @@ import { PeopleFiltersComponent } from './components/people-filters/people-filte
 import { PeopleComponent } from './components/people/people.component';
 import { NumberFormatPipe } from './number-format.pipe';
 import { TextCapitalizePipe } from './text-capitalize.pipe';
+import { NewsPagesComponent } from './pages/news-pages/news-pages.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { Top10PageComponent } from './pages/top10-page/top10-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
   { path: 'movies', component: MoviesPageComponent },
   { path: 'people', component: PeoplePageComponent },
+  { path: 'news', component: NewsPagesComponent },
+  { path: 'top10', component: Top10PageComponent },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent },
 ];
 
 @NgModule({
@@ -47,7 +55,11 @@ const routes: Routes = [
     PeopleFiltersComponent,
     PeopleComponent,
     NumberFormatPipe,
-    TextCapitalizePipe
+    TextCapitalizePipe,
+    NewsPagesComponent,
+    LoginPageComponent,
+    RegisterPageComponent,
+    Top10PageComponent
   ],
   imports: [
     BrowserModule,
