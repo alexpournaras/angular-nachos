@@ -2,88 +2,11 @@
     <div class="movie-cast-container">
         <h2 class="movie-section-title">Movie Cast</h2>
         <div class="actors">
-            <a href="./actor.html" tabindex="0" role="button" class="actor actor-flexbox">
-                <img class="actor-image" src="./assets/actors/margot_robbie.jpg">
+            <a *ngFor="let person of cast" [routerLink]="['/movies', 'movie002']" href="./actor.html" tabindex="0" role="button" class="actor actor-flexbox">
+                <img class="actor-image" [src]="person.imageUrl">
                 <div class="actor-caption">
-                    <span class="actor-caption-title">Margot Robbie</span><br>
-                    <span class="actor-caption-years">32 years old</span><br>
-                </div>
-            </a>
-            <a href="./actor.html" tabindex="0" role="button" class="actor actor-flexbox">
-                <img class="actor-image" src="./assets/actors/nicolas_cage.png">
-                <div class="actor-caption">
-                    <span class="actor-caption-title">Nicolas Cage</span><br>
-                    <span class="actor-caption-years">32 years old</span><br>
-                </div>
-            </a>
-            <a href="./actor.html" tabindex="0" role="button" class="actor actor-flexbox">
-                <img class="actor-image" src="./assets/actors/jenna_ortega.jpg">
-                <div class="actor-caption">
-                    <span class="actor-caption-title">Jenna Ortega</span><br>
-                    <span class="actor-caption-years">32 years old</span><br>
-                </div>
-            </a>
-            <a href="./actor.html" tabindex="0" role="button" class="actor actor-flexbox">
-                <img class="actor-image" src="./assets/actors/daniel_craig.jpg">
-                <div class="actor-caption">
-                    <span class="actor-caption-title">Daniel Craig</span><br>
-                    <span class="actor-caption-years">32 years old</span><br>
-                </div>
-            </a>
-            <a href="./actor.html" tabindex="0" role="button" class="actor actor-flexbox">
-                <img class="actor-image" src="./assets/actors/scarlett_johansson.jpg">
-                <div class="actor-caption">
-                    <span class="actor-caption-title">Scarlett Johansson</span><br>
-                    <span class="actor-caption-years">32 years old</span><br>
-                </div>
-            </a>
-            <a href="./actor.html" tabindex="0" role="button" class="actor actor-flexbox">
-                <img class="actor-image" src="./assets/actors/tom_cruise.jpg">
-                <div class="actor-caption">
-                    <span class="actor-caption-title">Tom Cruise</span><br>
-                    <span class="actor-caption-years">32 years old</span><br>
-                </div>
-            </a>
-            <a href="./actor.html" tabindex="0" role="button" class="actor actor-flexbox">
-                <img class="actor-image" src="./assets/actors/tom_holland.jpg">
-                <div class="actor-caption">
-                    <span class="actor-caption-title">Tom Holland</span><br>
-                    <span class="actor-caption-years">32 years old</span><br>
-                </div>
-            </a>
-            <a href="./actor.html" tabindex="0" role="button" class="actor actor-flexbox">
-                <img class="actor-image" src="./assets/actors/anya_taylor_joy.jpg">
-                <div class="actor-caption">
-                    <span class="actor-caption-title">Anya Taylor-Joy</span><br>
-                    <span class="actor-caption-years">32 years old</span><br>
-                </div>
-            </a>
-            <a href="./actor.html" tabindex="0" role="button" class="actor actor-flexbox">
-                <img class="actor-image" src="./assets/actors/brad_pitt.jpg">
-                <div class="actor-caption">
-                    <span class="actor-caption-title">Brad Pitt</span><br>
-                    <span class="actor-caption-years">32 years old</span><br>
-                </div>
-            </a>
-            <a href="./actor.html" tabindex="0" role="button" class="actor actor-flexbox">
-                <img class="actor-image" src="./assets/actors/ryan_reynolds.jpg">
-                <div class="actor-caption">
-                    <span class="actor-caption-title">Ryan Reynolds</span><br>
-                    <span class="actor-caption-years">32 years old</span><br>
-                </div>
-            </a>
-            <a href="./actor.html" tabindex="0" role="button" class="actor actor-flexbox">
-                <img class="actor-image" src="./assets/actors/leonardo-dicaprio.jpg">
-                <div class="actor-caption">
-                    <span class="actor-caption-title">Leonardo DiCaprio</span><br>
-                    <span class="actor-caption-years">32 years old</span><br>
-                </div>
-            </a>
-            <a href="./actor.html" tabindex="0" role="button" class="actor actor-flexbox">
-                <img class="actor-image" src="./assets/actors/robert_downey_jr.jpg">
-                <div class="actor-caption">
-                    <span class="actor-caption-title">Robert Downey Jr.</span><br>
-                    <span class="actor-caption-years">32 years old</span><br>
+                    <span class="actor-caption-title">{{ person.name }}</span><br>
+                    <span class="actor-caption-years">{{ person.role | textCapitalize }}</span><br>
                 </div>
             </a>
         </div>

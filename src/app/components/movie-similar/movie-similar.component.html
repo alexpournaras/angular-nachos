@@ -2,51 +2,11 @@
     <div class="similar-movies-container">
         <h2 class="movie-section-title">Similar Movies</h2>
         <div class="featured-movies-container">
-            <a href="./movie.html" tabindex="0" role="button" class="featured-movie featured-movie-flexbox">
-                <img class="featured-movie-image" src="./assets/featured/godzilla_poster.png">
+            <a *ngFor="let movie of similarMovies" [routerLink]="['/movies', movie.id]" tabindex="0" role="button" class="featured-movie featured-movie-flexbox">
+                <img class="featured-movie-image" [src]="movie.imageUrl">
                 <div class="featured-movie-caption">
-                    <span class="featured-movie-caption-title">Godzilla v Kong</span><br>
-                    <span><i class="fa fa-star featured-movie-caption-star"></i> 6.3 Rating</span><br>
-                    <button class="featured-movie-caption-button">Read More</button>
-                </div>
-            </a>
-            <a href="./movie.html" tabindex="0" role="button" class="featured-movie featured-movie-flexbox">
-                <img class="featured-movie-image" src="./assets/featured/batman_poster.png">
-                <div class="featured-movie-caption">
-                    <span class="featured-movie-caption-title">Batman</span><br>
-                    <span><i class="fa fa-star featured-movie-caption-star"></i> 7.8 Rating</span><br>
-                    <button class="featured-movie-caption-button">Read More</button>
-                </div>
-            </a>
-            <a href="./movie.html" tabindex="0" role="button" class="featured-movie featured-movie-flexbox">
-                <img class="featured-movie-image" src="./assets/featured/black_widow_poster.png">
-                <div class="featured-movie-caption">
-                    <span class="featured-movie-caption-title">Black Widow</span><br>
-                    <span><i class="fa fa-star featured-movie-caption-star"></i> 6.7 Rating</span><br>
-                    <button class="featured-movie-caption-button">Read More</button>
-                </div>
-            </a>
-            <a href="./movie.html" tabindex="0" role="button" class="featured-movie featured-movie-flexbox">
-                <img class="featured-movie-image" src="./assets/featured/mortal_kombat_poster.png">
-                <div class="featured-movie-caption">
-                    <span class="featured-movie-caption-title">Mortal Kombat</span><br>
-                    <span><i class="fa fa-star featured-movie-caption-star"></i> 6.1 Rating</span><br>
-                    <button class="featured-movie-caption-button">Read More</button>
-                </div>
-            </a>
-            <a href="./movie.html" tabindex="0" role="button" class="featured-movie featured-movie-flexbox">
-                <img class="featured-movie-image" src="./assets/featured/uncharted_poster.png">
-                <div class="featured-movie-caption">
-                    <span class="featured-movie-caption-title">Uncharted</span><br>
-                    <span><i class="fa fa-star featured-movie-caption-star"></i> 6.3 Rating</span><br>
-                    <button class="featured-movie-caption-button">Read More</button>
-                </div>
-            </a>
-            <a href="./movie.html" tabindex="0" role="button" class="featured-movie featured-movie-flexbox">
-                <img class="featured-movie-image" src="./assets/featured/007_poster.png">
-                <div class="featured-movie-caption">
-                    <span class="featured-movie-caption-title">No Time To Die</span><br>
-                    <span><i class="fa fa-star featured-movie-caption-star"></i> 7.3 Rating</span><br>
+                    <span class="featured-movie-caption-title">{{ movie.title }}</span><br>
+                    <span><i class="fa fa-star featured-movie-caption-star"></i> {{ movie.score | numberFormat }} Rating</span><br>
                     <button class="featured-movie-caption-button">Read More</button>
                 </div>
             </a>
