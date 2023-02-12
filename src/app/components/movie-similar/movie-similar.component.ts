@@ -39,7 +39,6 @@ export class MovieSimilarComponent implements OnInit {
 
       this.similarMovies.sort((a, b) => b.score - a.score);
       this.similarMovies = this.similarMovies.slice(0, 6);
-      window.scrollTo(0, 0);
     }
   }
 }

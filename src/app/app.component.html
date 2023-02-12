@@ -1,6 +1,7 @@
 <header>
   <app-header class="header"></app-header>
 </header>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#f37711" type="pacman" [fullScreen]="true"><p style="color: white">Eating Some Nachos...</p></ngx-spinner>
 <main *ngIf="initiallized" class="main">
   <router-outlet></router-outlet>
   <app-cookie></app-cookie>
