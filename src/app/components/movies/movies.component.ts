@@ -15,8 +15,7 @@ export class MoviesComponent implements OnInit {
   async ngOnInit() {
     const movies = await this.apiService.getMovies();
 
-    for (const [movie_id, movie] of Object.entries(movies)) {
-      movie['id'] = movie_id;
+    for (const movie of movies) {
       this.movies.push(movie)
     }
 

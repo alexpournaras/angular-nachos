@@ -17,7 +17,7 @@ export class MoviesFiltersComponent implements OnInit {
     let movies = await this.apiService.getMovies();
     let genres = await this.apiService.getGenres();
 
-    for (const movie of Object.values(movies)) {
+    for (const movie of movies) {
       if (!this.yearsList.includes(movie.releaseYear)) this.yearsList.push(movie.releaseYear);
     }
 

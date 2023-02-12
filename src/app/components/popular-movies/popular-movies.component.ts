@@ -16,8 +16,7 @@ export class PopularMoviesComponent implements OnInit {
     const movies = await this.apiService.getMovies();
 
     let popularMovies = [];
-    for (const [movie_id, movie] of Object.entries(movies)) {
-      movie['id'] = movie_id;
+    for (const movie of movies) {
       popularMovies.push(movie)
     }
 

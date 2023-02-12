@@ -15,9 +15,8 @@ export class PopularActorsComponent implements OnInit, AfterViewChecked {
   async ngOnInit() {
     const people = await this.apiService.getPeople();
 
-    for (const [person_id, person] of Object.entries(people)) {
+    for (const person of people) {
       if (person.role == 'actor') {
-        person['id'] = person_id;
         this.popularActors.push(person)
       }
     }
