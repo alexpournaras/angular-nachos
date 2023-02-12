@@ -13,21 +13,19 @@ export class MoviesFiltersComponent implements OnInit {
 
   constructor(private apiService: ApiService) { }
 
-  ngOnInit() {
-    this.apiService.movies$.subscribe((data: { [id: string]: Movie }) => {
+  async ngOnInit() {
+    let movies = await this.apiService.getMovies();
+    let genres = await this.apiService.getGenres();
 
-      for (const movie of Object.values(data)) {
-        if (!this.yearsList.includes(movie.releaseYear)) this.yearsList.push(movie.releaseYear);
-      }
+    for (const movie of Object.values(movies)) {
+      if (!this.yearsList.includes(movie.releaseYear)) this.yearsList.push(movie.releaseYear);
+    }
 
-      this.yearsList.sort((a: number, b: number) => (b >= a) ? 1 : -1);
-    });
+    this.yearsList.sort((a: number, b: number) => (b >= a) ? 1 : -1);
 
-    this.apiService.genres$.subscribe((data) => {
-      for (const genre of Object.keys(data)) {
-        if (!this.genresList.includes(genre)) this.genresList.push(genre);
-      }
-    });
+    for (const genre of Object.keys(genres)) {
+      if (!this.genresList.includes(genre)) this.genresList.push(genre);
+    }
   }
 
   showGenres: boolean = false;

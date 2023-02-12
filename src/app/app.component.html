@@ -1,7 +1,7 @@
 <header>
   <app-header class="header"></app-header>
 </header>
-<main class="main">
+<main *ngIf="initiallized" class="main">
   <router-outlet></router-outlet>
   <app-cookie></app-cookie>
 </main>

@@ -12,19 +12,17 @@ export class PopularMoviesComponent implements OnInit {
 
   constructor(private apiService: ApiService) { }
 
-  ngOnInit() {
-    this.apiService.movies$.subscribe((data: { [id: string]: Movie }) => {
+  async ngOnInit() {
+    const movies = await this.apiService.getMovies();
 
-      let popularMovies = [];
+    let popularMovies = [];
+    for (const [movie_id, movie] of Object.entries(movies)) {
+      movie['id'] = movie_id;
+      popularMovies.push(movie)
+    }
 
-      for (const [movie_id, movie] of Object.entries(data)) {
-        movie['id'] = movie_id;
-        popularMovies.push(movie)
-      }
-
-      popularMovies.sort((a, b) => b.score - a.score);
-      this.popularMovies = popularMovies.slice(6, 18);
-    });
+    popularMovies.sort((a, b) => b.score - a.score);
+    this.popularMovies = popularMovies.slice(6, 18);
   }
 
 }

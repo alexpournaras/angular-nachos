@@ -12,15 +12,14 @@ export class MoviesComponent implements OnInit {
 
   constructor(private apiService: ApiService) { }
 
-  ngOnInit() {
-    this.apiService.movies$.subscribe((data: { [id: string]: Movie }) => {
+  async ngOnInit() {
+    const movies = await this.apiService.getMovies();
 
-      for (const [movie_id, movie] of Object.entries(data)) {
-        movie['id'] = movie_id;
-        this.movies.push(movie)
-      }
+    for (const [movie_id, movie] of Object.entries(movies)) {
+      movie['id'] = movie_id;
+      this.movies.push(movie)
+    }
 
-    });
   }
 
 }

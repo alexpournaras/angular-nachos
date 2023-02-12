@@ -12,15 +12,14 @@ export class PeopleComponent implements OnInit {
 
   constructor(private apiService: ApiService) { }
 
-  ngOnInit() {
-    this.apiService.people$.subscribe((data: { [id: string]: Person }) => {
+  async ngOnInit() {
+    const people = await this.apiService.getPeople();
 
-      for (const [person_id, person] of Object.entries(data)) {
-        person['id'] = person_id;
-        this.people.push(person)
-      }
+    for (const [person_id, person] of Object.entries(people)) {
+      person['id'] = person_id;
+      this.people.push(person)
+    }
 
-    });
   }
 
 }

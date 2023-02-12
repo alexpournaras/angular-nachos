@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-nachos';
+  initiallized: boolean = false;
+
+  constructor(private apiService: ApiService) { }
+
+  async ngOnInit() {
+    await this.apiService.fetchMovies();
+    await this.apiService.fetchPeople();
+    await this.apiService.fetchGenres();
+    
+    this.initiallized = true;
+  }
 }
