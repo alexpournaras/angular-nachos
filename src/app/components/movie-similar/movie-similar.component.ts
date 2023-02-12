@@ -1,7 +1,6 @@
 import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../api.service';
-import { BroadcastService } from '../../broadcast.service';
 import { Movie } from '../../movie';
 
 @Component({
@@ -13,7 +12,7 @@ export class MovieSimilarComponent implements OnInit {
   movieId: string | null = '';
   similarMovies: Movie[] = [];
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService, private broadcastService: BroadcastService) {}
+  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {

@@ -22,6 +22,7 @@ export class MovieCastComponent implements OnInit {
   }
 
   async updateMovieCast() {
+    this.cast = [];
     const people = await this.apiService.getPeople();
     const movies = await this.apiService.getMovies();
     const movie = movies.find(movie => movie.id === this.movieId);
