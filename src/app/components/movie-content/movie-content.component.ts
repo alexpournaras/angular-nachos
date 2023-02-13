@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../api.service';
 import { Movie } from '../../movie';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'movie-content',
@@ -40,16 +41,15 @@ export class MovieContentComponent implements OnInit {
     const movies = await this.apiService.getMovies();
     const movie = movies.find(movie => movie.id === this.movieId);
     if (movie) this.movie = movie;
-    this.getYoutubeMovieTrailer('movie ' + movie?.title + ' ' + movie?.releaseYear + ' trailer').subscribe(data => {
+    this.getYoutubeMovieTrailer('movie ' + movie?.title.replace('&', 'and') + ' ' + movie?.releaseYear + ' trailer').subscribe(data => {
       const video = data.items[0];
       this.movieTrailer = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video.id.videoId);
     });
   }
 
   getYoutubeMovieTrailer(searchTerm: string): Observable<any> {
-    const API_KEY = 'AIzaSyC0IN79OvjvNCN41PZ1SE_gLptRyWBO-RU';
     return this.http.get<any>(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${searchTerm}&type=video&key=${API_KEY}`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${searchTerm}&type=video&key=${environment.YOUTUBE_API_KEY}`
     );
   }
 }
