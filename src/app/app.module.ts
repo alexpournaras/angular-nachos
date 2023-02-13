@@ -78,8 +78,9 @@ const routes: Routes = [
     HttpClientModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { useHash: true })
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
