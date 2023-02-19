@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgxSpinnerModule } from "ngx-spinner";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -31,6 +32,7 @@ import { MoviePageComponent } from './pages/movie-page/movie-page.component';
 import { MovieContentComponent } from './components/movie-content/movie-content.component';
 import { MovieCastComponent } from './components/movie-cast/movie-cast.component';
 import { MovieSimilarComponent } from './components/movie-similar/movie-similar.component';
+import { MovieReviewsComponent } from './components/movie-reviews/movie-reviews.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
@@ -71,13 +73,16 @@ const routes: Routes = [
     MoviePageComponent,
     MovieContentComponent,
     MovieCastComponent,
-    MovieSimilarComponent
+    MovieSimilarComponent,
+    MovieReviewsComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],
   exports: [RouterModule],

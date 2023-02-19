@@ -887,7 +887,7 @@ body {
 	background-color: var(--main-color);
 }
 
-.movie-content-section, .movie-cast-section, .similar-movies-section, .actor-content-section, .more-actors-section, .actors-known-for-section, .news-section {
+.movie-content-section, .movie-cast-section, .similar-movies-section, .movie-reviews-section, .actor-content-section, .more-actors-section, .actors-known-for-section, .news-section {
 	padding: 20px 200px 0px 200px;
 	min-width: 305px;
 }
@@ -1511,7 +1511,7 @@ body {
 		font-size: 13px;
 	}
 
-	.movie-content-section, .movie-cast-section, .similar-movies-section, .actor-content-section, .more-actors-section, .actors-known-for-section, .news-section {
+	.movie-content-section, .movie-cast-section, .similar-movies-section, .movie-reviews-section, .actor-content-section, .more-actors-section, .actors-known-for-section, .news-section {
 		padding: 20px 30px 0px 30px;
 	}
 }

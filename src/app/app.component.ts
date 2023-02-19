@@ -20,6 +20,7 @@ export class AppComponent {
     await this.apiService.fetchMovies();
     await this.apiService.fetchPeople();
     await this.apiService.fetchGenres();
+    await this.apiService.fetchReviews();
     
     this.initiallized = true;
     this.spinner.hide();

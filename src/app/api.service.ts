@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Movie } from './movie';
 import { Person } from './person';
+import { Review } from './review';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,7 @@ import { Person } from './person';
 export class ApiService {
   private movies: Movie[] = [];
   private people: Person[] = [];
+  private reviews: Review[] = [];
   private genres: {} = {};
   
   constructor(private http: HttpClient) { }
@@ -43,6 +46,21 @@ export class ApiService {
       });
   }
 
+  async fetchReviews() {
+    await this.http.get<{ [id: string]: Review }>('https://city-assignment.firebaseio.com/reviews.json')
+      .toPromise()
+      .then((data: { [id: string]: Review } | undefined) => {
+        if (data) {
+          this.reviews = [];
+          
+          for (const [review_id, review] of Object.entries(data)) {
+            review['id'] = review_id;
+            this.reviews.push(review)
+          }
+        }
+      });
+  }
+
   async fetchGenres() {
     await this.http.get('https://city-assignment.firebaseio.com/genres.json')
       .toPromise()
@@ -51,12 +69,25 @@ export class ApiService {
       });
   }
 
+  postReview(reviewData: any): Observable<any> {
+    return this.http.post('https://city-assignment.firebaseio.com/reviews.json', reviewData)
+      .pipe(
+        tap(() => {
+          this.reviews.push(reviewData);
+        })
+      );
+  }
+
   async getMovies() {
     return this.movies;
   }
 
   async getPeople() {
     return this.people;
+  }
+
+  async getReviews() {
+    return this.reviews;
   }
 
   async getGenres() {

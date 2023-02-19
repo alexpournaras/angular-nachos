@@ -1,0 +1,44 @@
+<section class="movie-reviews-section">
+    <h2 class="movie-section-title">Reviews</h2>
+    <div *ngFor="let review of reviews" class="movie-review-container">
+        <div class="movie-review-rating">
+            <i class="fa fa-star imdb-rating-star"></i><span>{{ review.score | numberFormat }}</span>/10
+        </div>
+        <div class="movie-review-title">{{ review.title }}</div>
+        <div class="movie-review-author">
+            <span class="movie-reviewer">{{ review.reviewer }}</span>
+            <span class="movie-review-date">{{ review.date }}</span>
+        </div>
+        <div class="movie-review-content">{{ review.review }}</div>
+    </div>
+    <div class="form-container">
+        <div class="forms">
+            <div class="form">
+                <span class="form-title">Submit your review:</span>
+
+                <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+                    <div class="form-flex-container">
+                        <div class="input-field input-left">
+                            <input type="text" formControlName="username" placeholder="Enter your username" [ngClass]="{'form-invalid-input': username?.invalid}" required autocomplete="off">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="input-field input-right">
+                            <input type="number" step="0.1" min="0" max="10" formControlName="rating" placeholder="Enter your rating 0-10" [ngClass]="{'form-invalid-input': rating?.invalid}" required autocomplete="off">
+                            <i class="fa fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" class="password" formControlName="title" placeholder="Enter your title" [ngClass]="{'form-invalid-input': title?.invalid}" required autocomplete="off">
+                        <i class="fa fa-quote-right"></i>
+                    </div>
+
+                    <textarea formControlName="review" rows="5" class="form-input input-textarea" placeholder="Enter your review." [ngClass]="{'form-invalid-input': review?.invalid}" required autocomplete="off"></textarea>
+
+                    <div class="input-field form-button">
+                        <input type="submit" [disabled]="reviewForm.invalid">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
