@@ -30,7 +30,18 @@ export class MovieCastComponent implements OnInit {
     if (movie) {
       for (const actor of movie.cast) {
         const person = people.find(person => person.name === actor);
-        if (person) this.cast.push(person);
+        if (person) {
+          this.cast.push(person);
+        } else {
+          this.cast.push({
+            id: '',
+            bio: '',
+            imageUrl: 'assets/person_template.jpg',
+            name: actor,
+            role: 'actor',
+            missing: true
+          })
+        }
       }
 
       const director = people.find(person => person.name === movie.director);

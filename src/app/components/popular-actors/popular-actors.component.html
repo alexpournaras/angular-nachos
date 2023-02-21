@@ -4,7 +4,7 @@
     </h2>
 </div>
 <div class="actors">
-    <a *ngFor="let actor of popularActors" href="./pages/actor.html" tabindex="0" role="button" class="actor actor-flexbox">
+    <a *ngFor="let actor of popularActors" [routerLink]="['/people', actor.id]" tabindex="0" role="button" class="actor actor-flexbox">
         <img class="actor-image" [src]="actor.imageUrl">
         <div class="actor-caption">
             <span class="actor-caption-title">{{ actor.name }}</span><br>

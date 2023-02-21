@@ -743,7 +743,7 @@ body {
 .movie-image, .actor-container-image {
 	width: 100%;
 	display: block;
-	aspect-ratio: 1/1.5;
+	aspect-ratio: 1/1.2;
 }
 
 .movies-filters-container, .actors-filters-container {
@@ -1315,6 +1315,14 @@ body {
 
 	.movie-plot-container, .actor-biography-container, .article-content {
 		padding: 0px 0px 20px 0px;
+	}
+
+	.movie-details-container {
+		padding: 10px 0px;
+	}
+
+	.movie-details {
+		margin: 0px;
 	}
 
 	.movies-filters-container, .actors-filters-container {

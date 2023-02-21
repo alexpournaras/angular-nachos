@@ -4,4 +4,5 @@ export interface Person {
     imageUrl: string;
     name: string;
     role: string;
+    missing?: boolean;
 }
