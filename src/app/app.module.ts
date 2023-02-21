@@ -27,7 +27,6 @@ import { TextCapitalizePipe } from './text-capitalize.pipe';
 import { NewsPagesComponent } from './pages/news-pages/news-pages.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import { Top10PageComponent } from './pages/top10-page/top10-page.component';
 import { MoviePageComponent } from './pages/movie-page/movie-page.component';
 import { MovieContentComponent } from './components/movie-content/movie-content.component';
 import { MovieCastComponent } from './components/movie-cast/movie-cast.component';
@@ -37,6 +36,8 @@ import { PersonPageComponent } from './pages/person-page/person-page.component';
 import { PersonContentComponent } from './components/person-content/person-content.component';
 import { PersonKnownForComponent } from './components/person-known-for/person-known-for.component';
 import { PersonMorePeopleComponent } from './components/person-more-people/person-more-people.component';
+import { Trending10Component } from './components/trending10/trending10.component';
+import { Trending10PageComponent } from './pages/trending10-page/trending10-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
@@ -45,7 +46,7 @@ const routes: Routes = [
   { path: 'people', component: PeoplePageComponent },
   { path: 'people/:id', component: PersonPageComponent },
   { path: 'news', component: NewsPagesComponent },
-  { path: 'top10', component: Top10PageComponent },
+  { path: 'trending-10', component: Trending10PageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: '**', redirectTo: '/' },
@@ -74,7 +75,6 @@ const routes: Routes = [
     NewsPagesComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    Top10PageComponent,
     MoviePageComponent,
     MovieContentComponent,
     MovieCastComponent,
@@ -84,6 +84,8 @@ const routes: Routes = [
     PersonContentComponent,
     PersonKnownForComponent,
     PersonMorePeopleComponent,
+    Trending10Component,
+    Trending10PageComponent,
   ],
   imports: [
     BrowserModule,
