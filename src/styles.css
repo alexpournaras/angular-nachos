@@ -90,6 +90,7 @@ body {
 	margin: 0 10px;
 	padding: 0px 5px 0px 5px;
 	white-space: nowrap;
+	cursor: pointer;
 }
 
 .menu-link-active {
@@ -315,6 +316,9 @@ body {
 	text-align: center;
 	background-color: var(--background-light-color);
 	margin-bottom: 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .featured-movie-caption-title {
