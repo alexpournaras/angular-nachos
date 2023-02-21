@@ -1,0 +1,14 @@
+<section *ngIf="people.length > 0" class="more-actors-section">
+    <div class="more-actors-container">
+        <h2 class="more-actors-section-title">More People</h2>
+        <div class="actors">
+            <a *ngFor="let person of people" [routerLink]="['/people', person.id]" tabindex="0" role="button" class="actor actor-flexbox">
+                <img class="actor-image" [src]="person.imageUrl">
+                <div class="actor-caption">
+                    <span class="actor-caption-title">{{ person.name }}</span><br>
+                    <span class="actor-caption-years">32 years old</span><br>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>

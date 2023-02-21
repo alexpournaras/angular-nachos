@@ -34,6 +34,9 @@ import { MovieCastComponent } from './components/movie-cast/movie-cast.component
 import { MovieSimilarComponent } from './components/movie-similar/movie-similar.component';
 import { MovieReviewsComponent } from './components/movie-reviews/movie-reviews.component';
 import { PersonPageComponent } from './pages/person-page/person-page.component';
+import { PersonContentComponent } from './components/person-content/person-content.component';
+import { PersonKnownForComponent } from './components/person-known-for/person-known-for.component';
+import { PersonMorePeopleComponent } from './components/person-more-people/person-more-people.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
@@ -78,6 +81,9 @@ const routes: Routes = [
     MovieSimilarComponent,
     MovieReviewsComponent,
     PersonPageComponent,
+    PersonContentComponent,
+    PersonKnownForComponent,
+    PersonMorePeopleComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+<section class="actor-content-section">
+    <div class="actor-title-rating">
+        <div class="actor-title">
+            {{ person.name }}
+        </div>
+    </div>
+    <div class="actor-poster-trailer">
+        <img [src]="person.imageUrl">
+        <div class="actor-trailer">
+            <iframe width="100%" height="100%" [src]="youtubeVideo" title="Actor Trailer from Youtube" alt="Actor Trailer from Youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+        </div>
+    </div>
+    <div class="actor-plot-details">
+        <h2 class="actor-section-title">Biography</h2>
+        <div class="actor-biography-container">
+            <p class="actor-biography">{{ person.bio }}</p>
+        </div>
+    </div>
+</section>

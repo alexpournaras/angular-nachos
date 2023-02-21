@@ -1,5 +1,5 @@
 <div class="actors-container">
-    <a *ngFor="let person of people" href="../pages/actor.html" tabindex="0" role="button" class="actor-container actor-container-flexbox">
+    <a *ngFor="let person of people" [routerLink]="['/people', person.id]" tabindex="0" role="button" class="actor-container actor-container-flexbox">
         <img class="actor-container-image" [src]="person.imageUrl">
         <div class="actor-container-caption">
             <span class="actor-container-caption-title">{{ person.name }}</span><br>
@@ -7,15 +7,6 @@
         </div>
     </a>
 </div>
-<!-- <div class="actors-container">
-    <a href="../pages/actor.html" tabindex="0" role="button" class="actor-container actor-container-flexbox">
-        <img class="actor-container-image" src="./assets/actors/margot_robbie.jpg">
-        <div class="actor-container-caption">
-            <span class="actor-container-caption-title">Margot Robbie</span><br>
-            <span class="actor-container-caption-year">32 years old</span><br>
-        </div>
-    </a>
-</div> -->
 <div class="actors-pagination">
     <ul class="actors-pagination-container actors-pagination-ul">
         <li><a href="#">«</a></li>

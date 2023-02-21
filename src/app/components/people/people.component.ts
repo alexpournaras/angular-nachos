@@ -15,8 +15,7 @@ export class PeopleComponent implements OnInit {
   async ngOnInit() {
     const people = await this.apiService.getPeople();
 
-    for (const [person_id, person] of Object.entries(people)) {
-      person['id'] = person_id;
+    for (const person of people) {
       this.people.push(person)
     }
 

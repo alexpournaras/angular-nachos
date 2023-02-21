@@ -459,6 +459,7 @@ body {
 	height: 81px;
 	width: 81px;
 	margin-left: -2px;
+	aspect-ratio: 1/1.2;
 }
 
 .cookie-notification {
@@ -740,7 +741,13 @@ body {
 	color: var(--main-color);
 }
 
-.movie-image, .actor-container-image {
+.movie-image {
+	width: 100%;
+	display: block;
+	aspect-ratio: 1/1.5;
+}
+
+.actor-container-image {
 	width: 100%;
 	display: block;
 	aspect-ratio: 1/1.2;

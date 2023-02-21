@@ -1,0 +1,14 @@
+<section *ngIf="moviesKnownFor.length > 0" class="actors-known-for-section">
+    <div class="actors-known-for-container">
+        <h2 class="actors-known-for-section-title">Known for</h2>
+        <div class="popular-movies">
+            <a *ngFor="let movie of moviesKnownFor" [routerLink]="['/movies', movie.id]" tabindex="0" role="button" class="popular-movie known-for-flexbox">
+                <img class="popular-movie-image" [src]="movie.imageUrl">
+                <div class="popular-movie-caption">
+                    <span class="popular-movie-caption-title">{{ movie.title }}</span><br>
+                    <span class="popular-movie-caption-year">{{ movie.releaseYear }} • {{ movie.score | numberFormat }}</span><br>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
