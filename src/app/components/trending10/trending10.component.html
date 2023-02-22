@@ -1,7 +1,10 @@
 <div *ngFor="let movie of movies; let i=index" class="movie">
-    <img [src]="movie.imageUrl" alt="{{ movie.title }}">
+    <div class="rank-top">#{{ i + 1 }}</div>
+    <div class="img-container">
+        <img [src]="movie.imageUrl" alt="{{ movie.title }}">
+    </div>
     <div class="info">
-      <div class="number">#{{ i + 1 }}</div>
+      <div class="rank-right">#{{ i + 1 }}</div>
       <h2 class="title">{{ movie.title }}<span>({{ movie.releaseYear }})</span></h2>
       <p class="score"><i class="fa fa-star imdb-rating-star"></i><span>{{ movie.score | numberFormat }}</span>/10</p>
       <p class="genres"><span>Genres:</span>{{ movie.genres.join(', ') }}</p>

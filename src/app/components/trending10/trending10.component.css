@@ -18,7 +18,7 @@ img {
   height: 300px;
 }
 
-.number {
+.rank-right {
   position: absolute;
   top: 0;
   right: 0;
@@ -27,6 +27,20 @@ img {
   font-weight: bold;
   font-size: 1.5rem;
   padding: 10px;
+}
+
+.rank-top {
+  display: none;
+  position: relative;
+  top: 0;
+  right: 0;
+  background: var(--linear-gradient);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 10px;
+  text-align: center;
+  border: 10px solid var(--background-light-color);
 }
 
 .title {
@@ -64,7 +78,6 @@ img {
 
 .genres span {
   color: var(--text-color);
-  font-size: 20px;
   font-weight: 900;
   margin-right: 10px;
 }
@@ -95,5 +108,48 @@ img {
   color: var(--text-color);
   font-weight: 900;
   margin-right: 10px;
+}
+
+@media (max-width: 800px) {
+  .movie {
+    display: block;
+  }
+  
+  img {
+    margin: auto;
+    max-height: 350px;
+  }
+
+  .info {
+    text-align: center;
+    height: 100%;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .score span {
+    font-size: 20px;
+  }
+
+  .imdb-rating-star {
+    margin-left: 0px;
+  }
+
+  .rank-right {
+    display: none;
+  }
+
+  .rank-top {
+    display: block;
+  }
+
+  .img-container {
+    display: flex;
+    background-color: var(--background-light-color);
+    padding-top: 20px;
+  }
+
 }
   
