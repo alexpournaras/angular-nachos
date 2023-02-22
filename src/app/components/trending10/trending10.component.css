@@ -1,0 +1,99 @@
+.movie {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+img {
+  margin-right: 10px;
+  height: 300px;
+  aspect-ratio: 1/1.5;
+}
+
+.info {
+  position: relative;
+  flex-grow: 1;
+  background-color: var(--background-light-color);
+  padding: 20px;
+  height: 300px;
+}
+
+.number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--linear-gradient);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 10px;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.title span {
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 10px;
+}
+
+.score {
+  font-size: 0.8rem;
+  margin-top: 0;
+}
+
+.score span {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.plot {
+  margin-top: 10px;
+}
+
+.genres {
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.genres span {
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+.starring {
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--link-color);
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.starring span {
+  color: var(--text-color);
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+.director {
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--link-color);
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.director span {
+  color: var(--text-color);
+  font-weight: 900;
+  margin-right: 10px;
+}
+  
