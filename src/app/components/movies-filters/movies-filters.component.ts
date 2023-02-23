@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../api.service';
-import { Movie } from '../../movie';
 
 @Component({
   selector: 'movies-filters',
@@ -8,10 +8,13 @@ import { Movie } from '../../movie';
   styleUrls: ['./movies-filters.component.css']
 })
 export class MoviesFiltersComponent implements OnInit {
-  yearsList: number[] = [];
   genresList: string[] = [];
+  yearsList: number[] = [];
+  selectedGenres: string[] = [];
+  selectedYears: string[] = [];
+  selectedSort: string = '';
 
-  constructor(private apiService: ApiService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private apiService: ApiService) { }
 
   async ngOnInit() {
     let movies = await this.apiService.getMovies();
@@ -26,6 +29,20 @@ export class MoviesFiltersComponent implements OnInit {
     for (const genre of Object.keys(genres)) {
       if (!this.genresList.includes(genre)) this.genresList.push(genre);
     }
+
+    this.route.queryParamMap.subscribe(queryParams => {
+      const genresParam = queryParams.get('genres');
+      if (genresParam) this.selectedGenres = genresParam.split(',');
+      else this.selectedGenres = [];
+
+      const yearsParam = queryParams.get('years');
+      if (yearsParam) this.selectedYears = yearsParam.split(',');
+      else this.selectedYears = [];
+
+      const sortParam = queryParams.get('sort');
+      if (sortParam) this.selectedSort = sortParam;
+      else this.selectedSort = '';
+    });
   }
 
   showGenres: boolean = false;
@@ -48,6 +65,30 @@ export class MoviesFiltersComponent implements OnInit {
     this.showSort = !this.showSort;
     this.showYear = false;
     this.showGenres = false;
+  }
+
+  onGenresCheckboxChange(event: any) {
+    if (event.target.checked) {
+      this.selectedGenres.push(event.target.value);
+    } else {
+      this.selectedGenres = this.selectedGenres.filter(genre => genre !== event.target.value);
+    }
+  }
+
+  onYearsCheckboxChange(event: any) {
+    if (event.target.checked) {
+      this.selectedYears.push(event.target.value);
+    } else {
+      this.selectedYears = this.selectedYears.filter(year => year !== event.target.value);
+    }
+  }
+
+  onSortChange(sort: string) {
+    this.selectedSort = sort;
+  }
+
+  onFilterSubmit() {
+    this.router.navigate(['/movies'], { queryParams: { genres: this.selectedGenres.join(','), years: this.selectedYears.join(','), sort: this.selectedSort } });
   }
 
   @HostListener('document:click', ['$event'])

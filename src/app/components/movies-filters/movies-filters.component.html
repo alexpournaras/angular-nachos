@@ -3,36 +3,48 @@
         <div class="movies-filter-dropdown">
             <button id="filter-genre" class="movies-filter-dropdown-button" (click)="toggleGenresDropdrown()">
                 <i class="fa fa-folder-open"></i>
-                Genre: <span>All</span>
+                Genres:
+                <span *ngIf="selectedGenres.length == 0">All</span>
+                <span *ngIf="selectedGenres.length == 1">{{ selectedGenres[0] }}</span>
+                <span *ngIf="selectedGenres.length >= 2">Multiple</span>
             </button>
             <ul *ngIf="showGenres" id="filter-genre-dropdown" class="filter-dropdown">
-                <li *ngFor="let genre of genresList"><input name="genre[]" type="checkbox" [id]="genre" [value]="genre"><label [for]="genre">{{ genre }}</label></li>
+                <li *ngFor="let genre of genresList">
+                    <input name="genre[]" type="checkbox" [id]="genre" [value]="genre" (change)="onGenresCheckboxChange($event)" [checked]="selectedGenres.includes(genre)">
+                    <label [for]="genre">{{ genre }}</label>
+                </li>
             </ul>
         </div>
         <div class="movies-filter-dropdown movies-filter-dropdown-2-col">
             <button id="filter-year" class="movies-filter-dropdown-button" (click)="toggleYearDropdrown()">
                 <i class="fa fa-calendar"></i>
-                Year: <span>All</span>
+                Years:
+                <span *ngIf="selectedYears.length == 0">All</span>
+                <span *ngIf="selectedYears.length == 1">{{ selectedYears[0] }}</span>
+                <span *ngIf="selectedYears.length >= 2">Multiple</span>
             </button>
             <ul *ngIf="showYear" id="filter-year-dropdown" class="filter-dropdown">
-                <li *ngFor="let year of yearsList"><input name="year[]" type="checkbox" [id]="year" [value]="year"><label [for]="year">{{ year }}</label></li>
+                <li *ngFor="let year of yearsList">
+                    <input name="year[]" type="checkbox" [id]="year" [value]="year" (change)="onYearsCheckboxChange($event)" [checked]="selectedYears.includes(year.toString())">
+                    <label [for]="year">{{ year }}</label>
+                </li>
             </ul>
         </div>
         <div class="movies-filter-dropdown">
             <button id="filter-sort" class="movies-filter-dropdown-button" (click)="toggleSortDropdrown()">
                 <i class="fa fa-sort"></i>
-                Sort: <span>Default</span>
+                Sort: 
+                <span *ngIf="selectedSort == ''">Default</span>
+                <span *ngIf="selectedSort != ''">{{ selectedSort }}</span>
             </button>
             <ul *ngIf="showSort" id="filter-sort-dropdown" class="filter-dropdown">
-                <li><input name="sort" id="sort_default" type="radio" value="default" checked="checked"><label for="sort_default">Default</label></li>
-                <li><input name="sort" id="sort_title" type="radio" value="title"><label for="sort_title">Name</label></li>
-                <li><input name="sort" id="sort_imdb" type="radio" value="imdb"><label for="sort_imdb">IMDb</label></li>
-                <li><input name="sort" id="sort_year" type="radio" value="year"><label for="sort_year">Release Date</label></li>
-                <li><input name="sort" id="sort_rated_scores" type="radio" value="rated_scores"><label for="sort_rated_scores">Site Rating</label></li>
+                <li><input name="sort" id="sort_name" type="radio" value="Name" (change)="onSortChange('Name')" [checked]="selectedSort == 'Name'"><label for="sort_name">Name</label></li>
+                <li><input name="sort" id="sort_imdb" type="radio" value="IMDB" (change)="onSortChange('IMDB')" [checked]="selectedSort == 'IMDB'"><label for="sort_imdb">IMDb</label></li>
+                <li><input name="sort" id="sort_release_year" type="radio" value="Release Year" (change)="onSortChange('Release Year')" [checked]="selectedSort == 'Release Year'"><label for="sort_release_year">Release Year</label></li>
             </ul>
         </div>
         <div class="movies-filter-submit">
-            <button type="submit" class="movies-filter-submit-button">
+            <button type="submit" class="movies-filter-submit-button" (click)="onFilterSubmit()">
                 <i class="fa fa-filter"></i>
                 Filter
             </button>
