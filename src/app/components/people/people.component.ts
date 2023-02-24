@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../api.service';
+import { SearchService } from '../../search.service';
 import { Person } from '../../person';
 
 @Component({
@@ -11,8 +12,9 @@ import { Person } from '../../person';
 export class PeopleComponent implements OnInit {
   people: Person[] = [];
   sort: string = '';
+  searchTerm: string = '';
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private searchService: SearchService) { }
 
   async ngOnInit() {
     this.route.queryParamMap.subscribe(queryParams => {
@@ -20,6 +22,11 @@ export class PeopleComponent implements OnInit {
       if (sortParam) this.sort = sortParam;
       else this.sort = '';
 
+      this.updatePeople();
+    });
+
+    this.searchService.getSearchTerm().subscribe((searchTerm) => {
+      this.searchTerm = searchTerm;
       this.updatePeople();
     });
   }
@@ -41,6 +48,10 @@ export class PeopleComponent implements OnInit {
         if (a.role > b.role) return 1;
         else return 0;
       });
+    }
+
+    if (this.searchTerm != '') {
+      filteredPeople = filteredPeople.filter(person => person.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
     }
     
     for (const person of filteredPeople) {

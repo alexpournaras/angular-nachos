@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SearchService } from '../../search.service';
 import { ApiService } from '../../api.service';
 
 @Component({
@@ -13,8 +14,9 @@ export class MoviesFiltersComponent implements OnInit {
   selectedGenres: string[] = [];
   selectedYears: string[] = [];
   selectedSort: string = '';
+  searchTerm: string = '';
 
-  constructor(private router: Router, private route: ActivatedRoute, private apiService: ApiService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private apiService: ApiService, private searchService: SearchService) { }
 
   async ngOnInit() {
     let movies = await this.apiService.getMovies();
@@ -29,6 +31,8 @@ export class MoviesFiltersComponent implements OnInit {
     for (const genre of Object.keys(genres)) {
       if (!this.genresList.includes(genre)) this.genresList.push(genre);
     }
+
+    this.searchService.setSearchTerm('');
 
     this.route.queryParamMap.subscribe(queryParams => {
       const genresParam = queryParams.get('genres');
@@ -89,6 +93,10 @@ export class MoviesFiltersComponent implements OnInit {
 
   onFilterSubmit() {
     this.router.navigate(['/movies'], { queryParams: { genres: this.selectedGenres.join(','), years: this.selectedYears.join(','), sort: this.selectedSort } });
+  }
+
+  searchMovies() {
+    this.searchService.setSearchTerm(this.searchTerm);
   }
 
   @HostListener('document:click', ['$event'])

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { SearchService } from '../../search.service';
 import { ApiService } from '../../api.service';
 import { Movie } from '../../movie';
 
@@ -13,8 +14,9 @@ export class MoviesComponent implements OnInit {
   genres: string[] = [];
   years: string[] = [];
   sort: string = '';
+  searchTerm: string = '';
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private searchService: SearchService) { }
 
   async ngOnInit() {
     this.route.queryParamMap.subscribe(queryParams => {
@@ -30,6 +32,11 @@ export class MoviesComponent implements OnInit {
       if (sortParam) this.sort = sortParam;
       else this.sort = '';
 
+      this.updateMovies();
+    });
+
+    this.searchService.getSearchTerm().subscribe((searchTerm) => {
+      this.searchTerm = searchTerm;
       this.updateMovies();
     });
   }
@@ -61,6 +68,10 @@ export class MoviesComponent implements OnInit {
       filteredMovies.sort((a, b) => b.score - a.score);
     } else if (this.sort == 'Release Year') {
       filteredMovies.sort((a, b) => b.releaseYear - a.releaseYear);
+    }
+
+    if (this.searchTerm != '') {
+      filteredMovies = filteredMovies.filter(movie => movie.title.toLowerCase().includes(this.searchTerm.toLowerCase()));
     }
     
     for (const movie of filteredMovies) {

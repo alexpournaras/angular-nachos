@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SearchService } from '../../search.service';
 
 @Component({
   selector: 'people-filters',
@@ -9,8 +10,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class PeopleFiltersComponent implements OnInit {
   showDropdown: boolean = false;
   selectedSort: string = '';
+  searchTerm: string = '';
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private searchService: SearchService) { }
 
   ngOnInit() {
     this.route.queryParamMap.subscribe(queryParams => {
@@ -18,6 +20,8 @@ export class PeopleFiltersComponent implements OnInit {
       if (sortParam) this.selectedSort = sortParam;
       else this.selectedSort = '';
     });
+
+    this.searchService.setSearchTerm('');
   }
 
   toggleDropdown() {
@@ -30,6 +34,10 @@ export class PeopleFiltersComponent implements OnInit {
 
   onFilterSubmit() {
     this.router.navigate(['/people'], { queryParams: { sort: this.selectedSort } });
+  }
+
+  searchPeople() {
+    this.searchService.setSearchTerm(this.searchTerm);
   }
 
   @HostListener('document:click', ['$event'])
