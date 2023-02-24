@@ -30,11 +30,11 @@ export class MoviesComponent implements OnInit {
       if (sortParam) this.sort = sortParam;
       else this.sort = '';
 
-      this.updateSimilarMovies();
+      this.updateMovies();
     });
   }
 
-  async updateSimilarMovies() {
+  async updateMovies() {
     const movies = await this.apiService.getMovies();
     let filteredMovies = movies;
     this.movies = [];

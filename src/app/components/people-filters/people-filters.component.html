@@ -3,16 +3,17 @@
         <div class="actors-filter-dropdown">
             <button id="filter-sort" class="actors-filter-dropdown-button" (click)="toggleDropdown()">
                 <i class="fa fa-sort"></i>
-                Sort: <span>Default</span>
+                Sort: 
+                <span *ngIf="selectedSort == ''">Default</span>
+                <span *ngIf="selectedSort != ''">{{ selectedSort }}</span>
             </button>
             <ul *ngIf="showDropdown" id="filter-sort-dropdown" class="filter-dropdown">
-                <li><input name="sort" id="sort_default" type="radio" value="default" checked="checked"><label for="sort_default">Default</label></li>
-                <li><input name="sort" id="sort_title" type="radio" value="title"><label for="sort_title">Alphabetical</label></li>
-                <li><input name="sort" id="sort_role" type="radio" value="role"><label for="sort_role">Role</label></li>
+                <li><input name="sort" id="sort_name" type="radio" value="Name" (change)="onSortChange('Name')" [checked]="selectedSort == 'Name'"><label for="sort_name">Name</label></li>
+                <li><input name="sort" id="sort_role" type="radio" value="Role" (change)="onSortChange('Role')" [checked]="selectedSort == 'Role'"><label for="sort_role">Role</label></li>
             </ul>
         </div>
         <div class="actors-filter-submit">
-            <button type="submit" class="actors-filter-submit-button">
+            <button type="submit" class="actors-filter-submit-button" (click)="onFilterSubmit()">
                 <i class="fa fa-filter"></i>
                 Filter
             </button>

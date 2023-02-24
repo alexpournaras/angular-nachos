@@ -1341,12 +1341,11 @@ body {
 	}
 
 	.movies-filter-dropdown, .actors-filter-dropdown {
-		width: 50% !important;
+		width: calc(50% - 10px) !important;
 	}
 
 	.movies-filter-dropdown-2-col {
 		flex-grow: 100;
-		width: unset !important;
 		margin-right: 0;
 	}
 }
