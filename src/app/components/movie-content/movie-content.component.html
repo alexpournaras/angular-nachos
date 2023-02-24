@@ -22,7 +22,7 @@
             <span class="movie-plot">{{ movie.summary }}</span>
         </div>
         <div class="movie-details-container">
-            <span class="movie-details-title">Categories</span>
+            <span class="movie-details-title">Genres:</span>
             <a [routerLink]="['/movies']" class="movie-details">{{ movie.genres.join(', ') }}</a>
         </div>
     </div>
