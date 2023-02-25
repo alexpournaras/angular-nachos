@@ -36,8 +36,8 @@ import { PersonPageComponent } from './pages/person-page/person-page.component';
 import { PersonContentComponent } from './components/person-content/person-content.component';
 import { PersonKnownForComponent } from './components/person-known-for/person-known-for.component';
 import { PersonMorePeopleComponent } from './components/person-more-people/person-more-people.component';
-import { Trending10Component } from './components/trending10/trending10.component';
-import { Trending10PageComponent } from './pages/trending10-page/trending10-page.component';
+import { Top10Component } from './components/top10/top10.component';
+import { Top10PageComponent } from './pages/top10-page/top10-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
@@ -46,7 +46,7 @@ const routes: Routes = [
   { path: 'people', component: PeoplePageComponent },
   { path: 'people/:id', component: PersonPageComponent },
   { path: 'news', component: NewsPagesComponent },
-  { path: 'trending-10', component: Trending10PageComponent },
+  { path: 'top-10', component: Top10PageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: '**', redirectTo: '/' },
@@ -84,8 +84,8 @@ const routes: Routes = [
     PersonContentComponent,
     PersonKnownForComponent,
     PersonMorePeopleComponent,
-    Trending10Component,
-    Trending10PageComponent,
+    Top10Component,
+    Top10PageComponent,
   ],
   imports: [
     BrowserModule,

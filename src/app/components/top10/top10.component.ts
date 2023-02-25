@@ -3,11 +3,11 @@ import { ApiService } from '../../api.service';
 import { Movie } from '../../movie';
 
 @Component({
-  selector: 'trending-10',
-  templateUrl: './trending10.component.html',
-  styleUrls: ['./trending10.component.css']
+  selector: 'top-10',
+  templateUrl: './top10.component.html',
+  styleUrls: ['./top10.component.css']
 })
-export class Trending10Component implements OnInit {
+export class Top10Component implements OnInit {
   movies: Movie[] = [];
 
   constructor(private apiService: ApiService) {}
