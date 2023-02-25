@@ -1,12 +1,12 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 
 @Component({
   selector: 'slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css']
 })
-export class SliderComponent implements OnInit {
-  automaticScroll: boolean = false;
+export class SliderComponent implements OnInit, OnDestroy {
+  automaticScroll: boolean = true;
   scrollInterval: number = 5000;
   activeSlide: number = 1;
   intervalId: any;
@@ -18,9 +18,14 @@ export class SliderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.setSlide(1);
     this.intervalId = window.setInterval(() => {
       if (this.automaticScroll) this.goToNextSlide();
     }, this.scrollInterval);
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.intervalId);
   }
 
   goToNextSlide() {
@@ -44,10 +49,12 @@ export class SliderComponent implements OnInit {
     if (!this.activeSlide) this.activeSlide = slide;
 
     clearInterval(this.intervalId);
-    this.intervalId = setInterval(() => {
-      if (this.automaticScroll) this.goToNextSlide();
-    }, this.scrollInterval);
-
+    if (this.intervalId) {
+      this.intervalId = setInterval(() => {
+        if (this.automaticScroll) this.goToNextSlide();
+      }, this.scrollInterval);
+    }
+      
     const slides = document.getElementsByClassName('slideshow-item');
     const dots = document.getElementsByClassName('slideshow-dot');
 
