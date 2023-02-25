@@ -1,0 +1,22 @@
+.movie-genre {
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--link-color);
+    background-color: var(--background-light-color);
+    margin: 5px 5px;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 900;
+}
+
+.movie-details-genres {
+    font-weight: 900;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 550px) {
+    .movie-details-genres {
+        display: block;
+    }
+}
