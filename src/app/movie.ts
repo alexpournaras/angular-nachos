@@ -1,3 +1,5 @@
+import { Person } from "./person";
+
 export interface Movie {
     id: string;
     cast: string[];
@@ -9,4 +11,5 @@ export interface Movie {
     score: number;
     summary: string;
     title: string;
+    castFullDetails?: Person[];
 }

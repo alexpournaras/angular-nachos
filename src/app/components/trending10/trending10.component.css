@@ -1,13 +1,21 @@
-.movie {
+.trending-movie {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  text-decoration: none;
+  color: inherit;
 }
 
 img {
   margin-right: 10px;
   height: 300px;
   aspect-ratio: 1/1.5;
+  transition: transform .2s;
+}
+
+img:hover {
+  cursor: pointer;
+  transform: scale(1.02);
 }
 
 .info {
@@ -50,6 +58,15 @@ img {
   font-weight: 900;
 }
 
+.title:hover {
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+.title:hover span {
+  color: var(--text-color);
+}
+
 .title span {
   font-size: 15px;
   font-weight: 300;
@@ -80,6 +97,7 @@ img {
   color: var(--text-color);
   font-weight: 900;
   margin-right: 10px;
+  display: inline-block;
 }
 
 .starring {
@@ -96,6 +114,15 @@ img {
   margin-right: 10px;
 }
 
+.starring a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.starring a:hover {
+  text-decoration: underline;
+}
+
 .director {
   font-size: 15px;
   text-decoration: none;
@@ -110,8 +137,28 @@ img {
   margin-right: 10px;
 }
 
+.director a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.director a:hover {
+  text-decoration: underline;
+}
+
+.movie-genre {
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--link-color);
+  background-color: var(--background-color);
+  margin: 5px 5px;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: 900;
+}
+
 @media (max-width: 800px) {
-  .movie {
+  .trending-movie {
     display: block;
   }
   
@@ -149,6 +196,10 @@ img {
     display: flex;
     background-color: var(--background-light-color);
     padding-top: 20px;
+  }
+
+  .genres span {
+    display: none;
   }
 
 }

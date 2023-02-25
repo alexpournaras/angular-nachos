@@ -13,8 +13,30 @@ export class Trending10Component implements OnInit {
   constructor(private apiService: ApiService) {}
 
   async ngOnInit() {
-    const movies = await this.apiService.getMovies();
-    movies.sort((a, b) => b.score - a.score);
-    this.movies = movies.slice(0, 10);
+    let people = await this.apiService.getPeople();
+    let movies = await this.apiService.getMovies();
+    movies = movies.sort((a, b) => b.score - a.score);
+    movies = movies.slice(0, 10);
+    
+    for (let movie of movies) {
+      movie.castFullDetails = [];
+      for (let actor of movie.cast) {
+        let person = people.find(person => person.name === actor);
+        if (person) {
+          movie.castFullDetails.push(person);
+        } else {
+          movie.castFullDetails.push({
+            id: '',
+            bio: '',
+            imageUrl: 'assets/person_template.jpg',
+            name: actor,
+            role: 'actor',
+            missing: true
+          })
+        }
+      }
+    }
+
+    this.movies = movies;
   }
 }
