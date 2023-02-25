@@ -6,21 +6,21 @@
             <div id="signup-form" class="form signup">
                 <span class="form-title">Registration</span>
 
-                <form id="register-form" action="#">
+                <form id="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                     <div class="input-field">
-                        <input type="text" name="username" placeholder="Enter your username" required>
+                        <input type="text" formControlName="username" placeholder="Enter your username" [ngClass]="{'form-invalid-input': username?.invalid}" required>
                         <i class="fa fa-user"></i>
                     </div>
                     <div class="input-field">
-                        <input type="text" name="email" placeholder="Enter your email" required>
+                        <input type="text" formControlName="email" placeholder="Enter your email" [ngClass]="{'form-invalid-input': email?.invalid}" required>
                         <i class="fa fa-envelope"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" name="password" class="password" placeholder="Create a password" required>
+                        <input type="password" formControlName="password" class="password" placeholder="Create a password" [ngClass]="{'form-invalid-input': password?.invalid}" required>
                         <i class="fa fa-unlock-alt"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" name="password_confirmation" class="password" placeholder="Confirm a password" required>
+                        <input type="password" formControlName="password_confirmation" class="password" placeholder="Confirm a password" [ngClass]="{'form-invalid-input': password_confirmation?.invalid}" required>
                         <i class="fa fa-lock"></i>
                     </div>
 
@@ -32,15 +32,15 @@
                     </div>
 
                     <div class="input-field form-button">
-                        <input type="submit">
+                        <input type="submit" [disabled]="registerForm.invalid">
                     </div>
                 </form>
                 
-                <p id="successully-registered">You have successully signed up!</p>
+                <p id="successully-registered" *ngIf="registerComplete">You have successully signed up!</p>
 
                 <div class="login-signup">
                     <span class="form-text">Already a member?
-                        <a href="./login.html" class="form-text login-link">Login Now</a>
+                        <a [routerLink]="['/login']" class="form-text login-link">Login Now</a>
                     </span>
                 </div>
             </div>

@@ -24,7 +24,7 @@ export class MovieReviewsComponent implements OnInit {
   get title() { return this.reviewForm.get('title'); }
   get review() { return this.reviewForm.get('review'); }
   
-  constructor(private route: ActivatedRoute, private apiService: ApiService, private formBuilder: FormBuilder) {}
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

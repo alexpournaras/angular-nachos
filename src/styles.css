@@ -1051,19 +1051,16 @@ body {
 #successully-registered {
 	text-align: center;
 	color: green;
-	display: none;
 }
 
 #user-not-found {
 	text-align: center;
 	color: red;
-	display: none;
 }
 
 #successfully-logged-in {
 	text-align: center;
 	color: green;
-	display: none;
 }
 
 .form-container {
