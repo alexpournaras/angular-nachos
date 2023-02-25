@@ -585,7 +585,6 @@ body {
 #successully-subscribed {
 	margin: 0;
 	color: green;
-	display: none;
 }
 
 .footer-usefull-links {
@@ -647,7 +646,6 @@ body {
 #message-sent {
 	margin: 10px;
 	color: green;
-	display: none;
 }
 
 .footer-bottom {

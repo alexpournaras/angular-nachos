@@ -9,6 +9,7 @@ import { User } from '../../user';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
+  loggedUser: string | null = null;
   loginStatus: boolean | null = null;
   loginForm: FormGroup = this.formBuilder.group({
     username: ['', [Validators.required]],
@@ -24,7 +25,11 @@ export class LoginPageComponent {
     if (this.loginForm.valid) {
       let user :User | null = this.stateService.loginUser(this.loginForm.value);
 
-      if (user) this.loginStatus = true;
+      if (user) {
+        this.loginStatus = true;
+        this.loggedUser = user.email;
+      }
+      
       else this.loginStatus = false;
       this.loginForm.reset();
     }

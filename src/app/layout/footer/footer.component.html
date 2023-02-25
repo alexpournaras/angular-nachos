@@ -3,11 +3,11 @@
       <div class="footer-item-container">
         <h2>Subscribe to our Newsletter</h2>
         <p>Our weekly newsletter provides you with the latest and most important happenings in the industry.</p>
-        <form id="subscribe-form" class="subscribe-form" action="#">
-          <input type="text" name="email" class="subscribe-input" placeholder="Enter e-mail adress" required/>
-          <button type="submit" class="subscribe-button">Subscribe</button>
+        <form id="subscribe-form" class="subscribe-form" [formGroup]="subscribeForm" (ngSubmit)="onSubscribe()">
+          <input type="text" formControlName="email" class="subscribe-input" placeholder="Enter e-mail adress" [ngClass]="{'form-invalid-input': subscribeEmail?.invalid}" required/>
+          <button type="submit" class="subscribe-button" [disabled]="subscribeForm.invalid">Subscribe</button>
         </form>
-        <p id="successully-subscribed">You have successully subscribed!</p>
+        <p id="successully-subscribed" *ngIf="subscribeComplete">You have successully subscribed!</p>
       </div>
     </div>
     <div class="footer-column footer-flexbox">
@@ -36,16 +36,16 @@
     <div class="footer-column footer-flexbox-last">
       <div class="footer-item-container">
         <h2>Contact Us</h2>
-        <form id="contact-us-form" action="#">
+        <form id="contact-us-form" [formGroup]="contactForm" (ngSubmit)="onMessageSend()">
           <div class="footer-contact-us-container">
-            <input type="text" name="email" class="contact-us-input" placeholder="Enter e-mail adress" required/>
+            <input type="text" formControlName="email" class="contact-us-input" placeholder="Enter e-mail adress" [ngClass]="{'form-invalid-input': contactEmail?.invalid}" required/>
           </div>
           <div class="footer-contact-us-container">
-            <textarea name="message" class="footer-contact-us-textarea" placeholder="Type your message" rows="3" required></textarea>
-            <button type="submit" class="footer-contact-us-button">Send</button>
+            <textarea formControlName="message" class="footer-contact-us-textarea" placeholder="Type your message" rows="3" [ngClass]="{'form-invalid-input': contactMessage?.invalid}" required></textarea>
+            <button type="submit" class="footer-contact-us-button" [disabled]="contactForm.invalid">Send</button>
           </div>
         </form>
-        <p id="message-sent">We received your message!</p>
+        <p id="message-sent" *ngIf="messageSent">We received your message!</p>
       </div>
     </div>
   </div>

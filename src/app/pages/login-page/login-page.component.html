@@ -6,11 +6,11 @@
 
                 <form id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <div class="input-field">
-                        <input type="text" formControlName="username" placeholder="Enter your username" required>
+                        <input type="text" formControlName="username" placeholder="Enter your username" [ngClass]="{'form-invalid-input': username?.invalid}" required>
                         <i class="fa fa-user"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="password" formControlName="password" placeholder="Enter your password" required>
+                        <input type="password" class="password" formControlName="password" [ngClass]="{'form-invalid-input': password?.invalid}" placeholder="Enter your password" required>
                         <i class="fa fa-lock"></i>
                     </div>
 
@@ -29,7 +29,7 @@
                 </form>
 
                 <p id="user-not-found" *ngIf="loginStatus == false">User not found or mistaken password!</p>
-                <p id="successfully-logged-in" *ngIf="loginStatus">You have successully logged in!</p>
+                <p id="successfully-logged-in" *ngIf="loginStatus">{{ loggedUser }}, you have successully logged in!</p>
 
                 <div class="login-signup">
                     <span class="form-text">Not a member?
