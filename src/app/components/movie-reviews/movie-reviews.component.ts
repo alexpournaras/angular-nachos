@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ApiService } from '../../api.service';
-import { Review } from 'src/app/review';
+import { ApiService } from '../../services/api.service';
+import { Review } from '../../interfaces/review';
 
 @Component({
   selector: 'movie-reviews',

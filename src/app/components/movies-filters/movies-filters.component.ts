@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SearchService } from '../../search.service';
-import { ApiService } from '../../api.service';
+import { SearchService } from '../../services/search.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'movies-filters',

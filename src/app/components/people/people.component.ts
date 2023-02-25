@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../api.service';
-import { SearchService } from '../../search.service';
-import { Person } from '../../person';
+import { ApiService } from '../../services/api.service';
+import { SearchService } from '../../services/search.service';
+import { Person } from '../../interfaces/person';
 
 @Component({
   selector: 'people',

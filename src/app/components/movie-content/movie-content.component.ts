@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ApiService } from '../../api.service';
-import { Movie } from '../../movie';
+import { ApiService } from '../../services/api.service';
+import { Movie } from '../../interfaces/movie';
 import { environment } from 'src/environments/environment';
 
 @Component({

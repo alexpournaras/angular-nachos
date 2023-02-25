@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit, AfterViewChecked } from '@angular/core';
-import { ApiService } from '../../api.service';
-import { Person } from '../../person';
+import { ApiService } from '../../services/api.service';
+import { Person } from '../../interfaces/person';
 
 @Component({
   selector: 'popular-actors',

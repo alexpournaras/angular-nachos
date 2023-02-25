@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { User } from './user';
-import { Message } from './message';
+import { User } from '../interfaces/user';
+import { Message } from '../interfaces/message';
 
 @Injectable({
   providedIn: 'root'

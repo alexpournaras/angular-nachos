@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Movie } from './movie';
-import { Person } from './person';
-import { Review } from './review';
+import { Movie } from '../interfaces/movie';
+import { Person } from '../interfaces/person';
+import { Review } from '../interfaces/review';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({

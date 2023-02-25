@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../api.service';
-import { Movie } from '../../movie';
+import { ApiService } from '../../services/api.service';
+import { Movie } from '../../interfaces/movie';
 
 @Component({
   selector: 'featured-movies',

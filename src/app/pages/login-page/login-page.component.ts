@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { StateService } from '../../state.service';
-import { User } from '../../user';
+import { StateService } from '../../services/state.service';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'login-page',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { StateService } from '../../state.service';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'register-page',
