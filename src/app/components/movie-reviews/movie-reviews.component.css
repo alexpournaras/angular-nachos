@@ -93,6 +93,7 @@
 
 .input-textarea {
     margin-top: 30px;
+    outline: none;
 }
 
 @media (max-width: 800px) {
