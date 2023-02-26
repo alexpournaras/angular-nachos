@@ -2,4 +2,9 @@
     text-align: center;
     margin: 50px;
     font-size: 20px;
+    min-height: 330px;
+}
+
+.actors-container {
+    min-height: 430px;
 }

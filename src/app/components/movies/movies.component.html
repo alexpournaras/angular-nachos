@@ -1,4 +1,4 @@
-<div class="movies">
+<div *ngIf="movies.length > 0" class="movies">
     <a *ngFor="let movie of movies" [routerLink]="['/movies', movie.id]" tabindex="0" role="button" class="movie movie-flexbox">
         <img class="movie-image" [src]="movie.imageUrl">
         <div class="movie-caption">

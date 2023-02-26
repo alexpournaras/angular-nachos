@@ -1,4 +1,4 @@
-<div class="actors-container">
+<div *ngIf="people.length > 0" class="actors-container">
     <a *ngFor="let person of people" [routerLink]="['/people', person.id]" tabindex="0" role="button" class="actor-container actor-container-flexbox">
         <img class="actor-container-image" [src]="person.imageUrl">
         <div class="actor-container-caption">
