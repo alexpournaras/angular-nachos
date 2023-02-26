@@ -1,6 +1,7 @@
-# AngularNachos
+ ![Movie Nachos](./src/assets/logo.png)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+https://alexpournaras.github.io/angular-nachos/
+
 
 ## Development server
 
