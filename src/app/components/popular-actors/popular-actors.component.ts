@@ -33,6 +33,7 @@ export class PopularActorsComponent implements OnInit, AfterViewChecked {
   }
 
   setRightColumnHeight() {
+    // Keep right column's height always in match with the left column's height of popular movies component
     const popularMoviesElement = document.querySelector('.popular-movies') as HTMLElement;
     const popularMoviesHeight = popularMoviesElement ? popularMoviesElement.offsetHeight : 0;
 

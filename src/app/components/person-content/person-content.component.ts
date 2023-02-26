@@ -36,6 +36,10 @@ export class PersonContentComponent implements OnInit {
     const people = await this.apiService.getPeople();
     const person = people.find(person => person.id === this.personId);
     if (person) this.person = person;
+
+    // In an actual project the trailer should be in the incoming data
+    // Based on the name and the role of the person, it searches YoutubeAPI and returns the first result
+    // This is definetely not a good practice!
     this.getYoutubeVideo(person?.role + '' + person?.name).subscribe(data => {
       const video = data.items[0];
       this.youtubeVideo = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + video.id.videoId);

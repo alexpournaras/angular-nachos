@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchService {
+  // This service is for bot movies and people filters components
   private searchTerm = new BehaviorSubject<string>('');
 
   getSearchTerm() {

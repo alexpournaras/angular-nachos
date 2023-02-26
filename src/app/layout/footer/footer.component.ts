@@ -18,6 +18,7 @@ export class FooterComponent {
     message: ['', [Validators.required]],
   });
 
+  // Getters to access form variables
   get subscribeEmail() { return this.subscribeForm.get('email'); }
   get contactEmail() { return this.contactForm.get('email'); }
   get contactMessage() { return this.contactForm.get('message'); }
@@ -25,6 +26,7 @@ export class FooterComponent {
   constructor(private formBuilder: FormBuilder, private stateService: StateService) { }
 
   onSubscribe() {
+    // Save emails to state service
     if (this.subscribeForm.valid) {
       this.stateService.subscribe(this.subscribeForm.value.email);
 
@@ -34,6 +36,7 @@ export class FooterComponent {
   }
 
   onMessageSend() {
+    // Save messages to state service
     if (this.contactForm.valid) {
       this.stateService.sendMessage(this.contactForm.value);
 

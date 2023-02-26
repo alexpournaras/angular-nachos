@@ -26,6 +26,7 @@ export class MovieCastComponent implements OnInit {
     const people = await this.apiService.getPeople();
     const movies = await this.apiService.getMovies();
     const movie = movies.find(movie => movie.id === this.movieId);
+    // Create the cast array by filtering the current movie cast and the people array
 
     if (movie) {
       for (const actor of movie.cast) {
@@ -33,6 +34,7 @@ export class MovieCastComponent implements OnInit {
         if (person) {
           this.cast.push(person);
         } else {
+          // If person not found, add an empty person object with default image
           this.cast.push({
             id: '',
             bio: '',

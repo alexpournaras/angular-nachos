@@ -40,11 +40,14 @@ export class MoviesComponent implements OnInit {
       if (pageParam) this.page = Number(pageParam);
       else this.page = 1;
 
+      // Update filtered movies based on route parameters
       this.updateMovies();
     });
 
     this.searchService.getSearchTerm().subscribe((searchTerm) => {
       this.searchTerm = searchTerm;
+
+      // Update filtered movies based on search term
       this.updateMovies();
     });
   }
@@ -54,18 +57,21 @@ export class MoviesComponent implements OnInit {
     let filteredMovies = movies;
     this.movies = [];
 
+    // Apply genres filter
     if (this.genres.length > 0) {
       filteredMovies = filteredMovies.filter(movie => {
         return movie.genres.some(genre => this.genres.includes(genre));
       });
     }
 
+    // Apply years filter
     if (this.years.length > 0) {
       filteredMovies = filteredMovies.filter(movie => {
         return this.years.includes(movie.releaseYear.toString());
       });
     }
 
+    // Apply sort filter
     if (this.sort == 'Name') {
       filteredMovies = filteredMovies.sort((a, b) => {
         if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
@@ -78,15 +84,18 @@ export class MoviesComponent implements OnInit {
       filteredMovies.sort((a, b) => b.releaseYear - a.releaseYear);
     }
 
+    // Apply search filter
     if (this.searchTerm != '') {
       filteredMovies = filteredMovies.filter(movie => movie.title.toLowerCase().includes(this.searchTerm.toLowerCase()));
     }
 
+    // Get total pages for pagination referrence
     this.totalPages = filteredMovies.length / this.moviesPerPage;
     if (this.totalPages % 1 !== 0) {
       this.totalPages = Math.floor(this.totalPages + 1);
     }
 
+    // Show only the maximum amount of movies per page
     if (filteredMovies.length > this.moviesPerPage) {
       filteredMovies = filteredMovies.slice(this.page * this.moviesPerPage - this.moviesPerPage, this.page * this.moviesPerPage);
     }
@@ -95,6 +104,7 @@ export class MoviesComponent implements OnInit {
       this.movies.push(movie)
     }
 
+    // Create the pagination number array
     this.pagination = [];
     if (this.totalPages == 0) this.totalPages = 1;
     for (let i = 1; i <= this.totalPages; i++) {

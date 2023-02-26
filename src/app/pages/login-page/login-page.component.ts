@@ -16,6 +16,7 @@ export class LoginPageComponent {
     password: ['', [Validators.required]],
   });
 
+  // Getters to access form variables
   get username() { return this.loginForm.get('username'); }
   get password() { return this.loginForm.get('password'); }
 
@@ -23,6 +24,7 @@ export class LoginPageComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
+      // Check if user exists and passwords match
       let user :User | null = this.stateService.loginUser(this.loginForm.value);
 
       if (user) {

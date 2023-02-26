@@ -22,6 +22,7 @@ export class PersonKnownForComponent implements OnInit {
   }
 
   async updateMoviesKnownFor() {
+    // Get the movies the person is known for based on the movies he/she played or directed
     const people = await this.apiService.getPeople();
     const movies = await this.apiService.getMovies();
     const person = people.find(person => person.id === this.personId);
@@ -35,6 +36,7 @@ export class PersonKnownForComponent implements OnInit {
       }
     }
 
+    // Component should show only the top 6 movies
     moviesKnownFor.sort((a, b) => b.score - a.score);
     this.moviesKnownFor = moviesKnownFor.slice(0, 6);
   }

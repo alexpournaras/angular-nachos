@@ -34,9 +34,17 @@ export class MovieReviewsComponent implements OnInit {
   }
 
   onSubmit() {
+    // Safety meter to not make available to everyone to post reviews
+    // Because I have deployed the project in GithubPages and its public to everyone
+    if (this.reviewForm.value.username != 'admin') {
+      alert('Unauthorized to write reviews!');
+      return;
+    }
+
     const now: Date = new Date();
     const dateString: string = now.toISOString();
     
+    // Create the review form data in the accepted type
     let reviewData = {
       date: dateString,
       movieId: this.movieId,

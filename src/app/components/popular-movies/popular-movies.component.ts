@@ -20,6 +20,8 @@ export class PopularMoviesComponent implements OnInit {
       popularMovies.push(movie)
     }
 
+    // Featured movies component has the top 6 movies based on score,
+    // This component uses the next 12 movies based on score.
     popularMovies.sort((a, b) => b.score - a.score);
     this.popularMovies = popularMovies.slice(6, 18);
   }

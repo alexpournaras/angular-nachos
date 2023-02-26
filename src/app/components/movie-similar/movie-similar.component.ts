@@ -23,6 +23,7 @@ export class MovieSimilarComponent implements OnInit {
 
   async updateSimilarMovies() {
     this.similarMovies = [];
+    // Create the similar movies array based on the movies that have same genres
     const movies = await this.apiService.getMovies();
     const selectedMovie = movies.find(movie => movie.id === this.movieId);
 
@@ -37,6 +38,7 @@ export class MovieSimilarComponent implements OnInit {
         }
       }
 
+      // Show only the top 6 similar movies
       this.similarMovies.sort((a, b) => b.score - a.score);
       this.similarMovies = this.similarMovies.slice(0, 6);
     }

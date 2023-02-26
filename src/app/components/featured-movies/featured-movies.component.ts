@@ -20,6 +20,7 @@ export class FeaturedMoviesComponent implements OnInit {
       featuredMovies.push(movie)
     }
 
+    // Get only the top 6 movies to show
     featuredMovies.sort((a, b) => b.score - a.score);
     this.featuredMovies = featuredMovies.slice(0, 6);
   }

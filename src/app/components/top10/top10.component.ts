@@ -13,6 +13,7 @@ export class Top10Component implements OnInit {
   constructor(private apiService: ApiService) {}
 
   async ngOnInit() {
+    // Foreach movie get the people if exists to make possible the redirect to them
     let people = await this.apiService.getPeople();
     let movies = await this.apiService.getMovies();
     movies = movies.sort((a, b) => b.score - a.score);
@@ -25,6 +26,7 @@ export class Top10Component implements OnInit {
         if (person) {
           movie.castFullDetails.push(person);
         } else {
+          // If person not found, create an empty person with missing property true
           movie.castFullDetails.push({
             id: '',
             bio: '',

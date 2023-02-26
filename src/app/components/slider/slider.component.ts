@@ -19,12 +19,14 @@ export class SliderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.setSlide(1);
+    // Initiallize the automatic scroll
     this.intervalId = window.setInterval(() => {
       if (this.automaticScroll) this.goToNextSlide();
     }, this.scrollInterval);
   }
 
   ngOnDestroy() {
+    // Clear interval to eliminate automatic swipes page changed
     clearInterval(this.intervalId);
   }
 
@@ -48,6 +50,7 @@ export class SliderComponent implements OnInit, OnDestroy {
   setSlide(slide: number): void {
     if (!this.activeSlide) this.activeSlide = slide;
 
+    // Clear all intervals
     clearInterval(this.intervalId);
     if (this.intervalId) {
       this.intervalId = setInterval(() => {
@@ -92,6 +95,7 @@ export class SliderComponent implements OnInit, OnDestroy {
     const xDiff = this.initialTouchX - xUp;
     const yDiff = this.initialTouchY - yUp;
 
+    // Calculate if user wants to proceed to next or previous slide
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
       if (xDiff > 0) {
         this.goToNextSlide();

@@ -9,6 +9,7 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
+  // Initiallization saves the repsonses here to perform fetch only once!
   private movies: Movie[] = [];
   private people: Person[] = [];
   private reviews: Review[] = [];

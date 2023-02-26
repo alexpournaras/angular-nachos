@@ -22,19 +22,23 @@ export class MoviesFiltersComponent implements OnInit {
     let movies = await this.apiService.getMovies();
     let genres = await this.apiService.getGenres();
 
+    // Create the years dropdown data based on the years of all movies
     for (const movie of movies) {
       if (!this.yearsList.includes(movie.releaseYear)) this.yearsList.push(movie.releaseYear);
     }
 
     this.yearsList.sort((a: number, b: number) => (b >= a) ? 1 : -1);
 
+    // Create the genres dropdown based on all the movies genres
     for (const genre of Object.keys(genres)) {
       if (!this.genresList.includes(genre)) this.genresList.push(genre);
     }
 
+    // Remove any previous search term on init
     this.searchService.setSearchTerm('');
 
     this.route.queryParamMap.subscribe(queryParams => {
+      // Set the initial state of dropdowns based on route params
       const genresParam = queryParams.get('genres');
       if (genresParam) this.selectedGenres = genresParam.split(',');
       else this.selectedGenres = [];
@@ -99,6 +103,7 @@ export class MoviesFiltersComponent implements OnInit {
     this.searchService.setSearchTerm(this.searchTerm);
   }
 
+  // Close dropdown when clicking outside of the element
   @HostListener('document:click', ['$event'])
   onClickOutside(event: MouseEvent) {
     if (!this.showGenres && !this.showYear && !this.showSort) return;

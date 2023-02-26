@@ -30,11 +30,14 @@ export class PeopleComponent implements OnInit {
       if (pageParam) this.page = Number(pageParam);
       else this.page = 1;
 
+      // Update filtered people based on params
       this.updatePeople();
     });
 
     this.searchService.getSearchTerm().subscribe((searchTerm) => {
       this.searchTerm = searchTerm;
+      
+      // Update filtered people based on search
       this.updatePeople();
     });
   }
@@ -44,6 +47,7 @@ export class PeopleComponent implements OnInit {
     let filteredPeople = people;
     this.people = [];
 
+    // Apply sorting filter
     if (this.sort == 'Name') {
       filteredPeople = filteredPeople.sort((a, b) => {
         if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
@@ -58,15 +62,18 @@ export class PeopleComponent implements OnInit {
       });
     }
 
+    // Apply search filter
     if (this.searchTerm != '') {
       filteredPeople = filteredPeople.filter(person => person.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
     }
 
+    // Get total pages for pagination referrence
     this.totalPages = filteredPeople.length / this.peoplePerPage;
     if (this.totalPages % 1 !== 0) {
       this.totalPages = Math.floor(this.totalPages + 1);
     }
 
+    // Show only the maximum number of people per page
     if (filteredPeople.length > this.peoplePerPage) {
       filteredPeople = filteredPeople.slice(this.page * this.peoplePerPage - this.peoplePerPage, this.page * this.peoplePerPage);
     }
@@ -75,6 +82,7 @@ export class PeopleComponent implements OnInit {
       this.people.push(person)
     }
 
+    // Create the pagination numbers array
     this.pagination = [];
     if (this.totalPages == 0) this.totalPages = 1;
     for (let i = 1; i <= this.totalPages; i++) {

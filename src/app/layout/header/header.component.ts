@@ -14,6 +14,7 @@ export class HeaderComponent {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    // Hide menu when user changes route
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {

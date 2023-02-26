@@ -16,6 +16,7 @@ export class RegisterPageComponent {
     password_confirmation: ['', [Validators.required, (control: AbstractControl<any, any>) => this.checkPasswords(control, this.registerForm?.get('password')?.value)]]
   });
 
+  // Getters to access form variables
   get username() { return this.registerForm.get('username'); }
   get email() { return this.registerForm.get('email'); }
   get password() { return this.registerForm.get('password'); }
@@ -24,11 +25,13 @@ export class RegisterPageComponent {
   constructor(private formBuilder: FormBuilder, private stateService: StateService) { }
 
   checkPasswords(control: AbstractControl, password: string) {
+    // Validation of password and password confirm form inputs
     const confirmPassword = control.value;
     return password === confirmPassword ? null : { passwordMismatch: true };
   }
 
   onSubmit() {
+    // Save user into state service
     if (this.registerForm.valid) {
       let userData = {
         username: this.registerForm.value.username,

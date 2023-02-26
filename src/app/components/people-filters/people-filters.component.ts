@@ -15,12 +15,14 @@ export class PeopleFiltersComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private searchService: SearchService) { }
 
   ngOnInit() {
+    // Check if parameter sort exits to set the dropdown correctly
     this.route.queryParamMap.subscribe(queryParams => {
       const sortParam = queryParams.get('sort');
       if (sortParam) this.selectedSort = sortParam;
       else this.selectedSort = '';
     });
 
+    // Remove any previous search term on init
     this.searchService.setSearchTerm('');
   }
 
@@ -40,6 +42,7 @@ export class PeopleFiltersComponent implements OnInit {
     this.searchService.setSearchTerm(this.searchTerm);
   }
 
+  // Close dropdown when clicking outside of the element
   @HostListener('document:click', ['$event'])
   onClickOutside(event: MouseEvent) {
     if (!this.showDropdown) return;

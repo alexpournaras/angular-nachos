@@ -22,6 +22,7 @@ export class PersonMorePeopleComponent implements OnInit {
   }
 
   async updateMorePeopleSection() {
+    // Get more people based on the movies that the person has played or directed
     const movies = await this.apiService.getMovies();
     const people = await this.apiService.getPeople();
     const currentPerson = people.find(person => person.id === this.personId);

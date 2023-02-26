@@ -17,6 +17,7 @@ export class AppComponent {
   async ngOnInit() {
     this.spinner.show();
     
+    // Initialize fetch of http requests
     await this.apiService.fetchMovies();
     await this.apiService.fetchPeople();
     await this.apiService.fetchGenres();
@@ -25,6 +26,7 @@ export class AppComponent {
     this.initiallized = true;
     this.spinner.hide();
 
+    // Scroll to top everytime user changes route
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => {
