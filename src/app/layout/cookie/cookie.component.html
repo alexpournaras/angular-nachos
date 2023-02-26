@@ -1,9 +1,9 @@
-<div id="cookieNotification" class="cookie-notification">
-    <div class="cookie-container">
-      <p class="cookie-description">We use cookies to offer to you the best possible user experience. By using our services, you accept the use of cookies.</p>
-      <div class="cookie-buttons-container">
-        <button type="button" id="closeCookie" class="cookie-button-close">Close</button>
-        <button type="button" id="acceptCookie" class="cookie-button-ok">OK</button>
-      </div>
+<div *ngIf="showCookie" id="cookieNotification" class="cookie-notification">
+  <div class="cookie-container">
+    <p class="cookie-description">We use cookies to offer to you the best possible user experience. By using our services, you accept the use of cookies.</p>
+    <div class="cookie-buttons-container">
+      <button type="button" (click)="hideCookie()" id="closeCookie" class="cookie-button-close">Close</button>
+      <button type="button" (click)="acceptCookie()" id="acceptCookie" class="cookie-button-ok">OK</button>
     </div>
   </div>
+</div>
