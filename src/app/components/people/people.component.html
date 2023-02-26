@@ -10,12 +10,8 @@
 <div *ngIf="people.length == 0" class="people-not-found">No results found...</div>
 <div class="actors-pagination">
     <ul class="actors-pagination-container actors-pagination-ul">
-        <li><a href="#">«</a></li>
-        <li><a href="#" class="actors-pagination-active">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">→</a></li>
-        <li><a href="#">»</a></li>
+        <li><a [routerLink]="['/people']">«</a></li>
+        <li *ngFor="let paginationPageNumber of pagination"><a [routerLink]="['/people']" [queryParams]="{ page: paginationPageNumber }" [ngClass]="{'actors-pagination-active': page === paginationPageNumber}">{{ paginationPageNumber }}</a></li>
+        <li><a [routerLink]="['/people']" [queryParams]="{ page: totalPages }">»</a></li>
     </ul>
 </div>

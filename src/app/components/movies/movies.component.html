@@ -8,14 +8,10 @@
     </a>
 </div>
 <div *ngIf="movies.length == 0" class="movies-not-found">No results found...</div>
-<!-- <div class="movies-pagination">
+<div class="movies-pagination">
     <ul class="movies-pagination-container movies-pagination-ul">
-        <li><a href="#">«</a></li>
-        <li><a href="#" class="movies-pagination-active">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">→</a></li>
-        <li><a href="#">»</a></li>
+        <li><a [routerLink]="['/movies']">«</a></li>
+        <li *ngFor="let paginationPageNumber of pagination"><a [routerLink]="['/movies']" [queryParams]="{ page: paginationPageNumber }" [ngClass]="{'movies-pagination-active': page === paginationPageNumber}">{{ paginationPageNumber }}</a></li>
+        <li><a [routerLink]="['/movies']" [queryParams]="{ page: totalPages }">»</a></li>
     </ul>
-</div> -->
+</div>

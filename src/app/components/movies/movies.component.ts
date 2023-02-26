@@ -15,6 +15,10 @@ export class MoviesComponent implements OnInit {
   years: string[] = [];
   sort: string = '';
   searchTerm: string = '';
+  moviesPerPage: number = 24;
+  page: number = 1;
+  totalPages: number = 1;
+  pagination: number[] = [1];
 
   constructor(private route: ActivatedRoute, private apiService: ApiService, private searchService: SearchService) { }
 
@@ -31,6 +35,10 @@ export class MoviesComponent implements OnInit {
       const sortParam = queryParams.get('sort');
       if (sortParam) this.sort = sortParam;
       else this.sort = '';
+
+      const pageParam = queryParams.get('page');
+      if (pageParam) this.page = Number(pageParam);
+      else this.page = 1;
 
       this.updateMovies();
     });
@@ -73,9 +81,24 @@ export class MoviesComponent implements OnInit {
     if (this.searchTerm != '') {
       filteredMovies = filteredMovies.filter(movie => movie.title.toLowerCase().includes(this.searchTerm.toLowerCase()));
     }
+
+    this.totalPages = filteredMovies.length / this.moviesPerPage;
+    if (this.totalPages % 1 !== 0) {
+      this.totalPages = Math.floor(this.totalPages + 1);
+    }
+
+    if (filteredMovies.length > this.moviesPerPage) {
+      filteredMovies = filteredMovies.slice(this.page * this.moviesPerPage - this.moviesPerPage, this.page * this.moviesPerPage);
+    }
     
     for (const movie of filteredMovies) {
       this.movies.push(movie)
+    }
+
+    this.pagination = [];
+    if (this.totalPages == 0) this.totalPages = 1;
+    for (let i = 1; i <= this.totalPages; i++) {
+      this.pagination.push(i);
     }
   }
 
